@@ -1,5 +1,10 @@
 # Client Portal Counterproposal
 
+> [!NOTE]
+> **Decision input — not the current plan.** This critique challenged the
+> initial proposal and informed the [revised plan](./revised-plan.md). It is
+> preserved to show the alternatives and tradeoffs considered.
+
 ## Executive position
 
 The initial client portal plan is technically coherent, but it risks solving too many infrastructure problems before the consultancy has validated its operating process or acquired enough clients to justify a custom transaction platform.

@@ -2,12 +2,13 @@
 
 ## Status
 
-**Working draft.** This document is the proposed successor to the
-[initial plan](./initial-plan.md). It incorporates the analysis in the
-[counterproposal](./counterproposal.md), beginning with the decision to use
-Stripe instead of building invoicing capability. It does not replace the
-historical documents, and it should not be treated as approved for
-implementation until the remaining decisions are resolved.
+**Current working direction — not yet approved for implementation.** This
+document supersedes the [initial plan](./initial-plan.md) as planning guidance.
+It incorporates the analysis in the [counterproposal](./counterproposal.md),
+beginning with the decision to use Stripe instead of building invoicing
+capability. It does not replace the historical documents, and implementation
+approval still requires resolving the remaining decisions and producing the
+revised cost estimate identified below.
 
 ## Strategic direction
 

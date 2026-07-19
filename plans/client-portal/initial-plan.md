@@ -1,5 +1,11 @@
 # Incremental Client Portal
 
+> [!IMPORTANT]
+> **Historical plan — superseded.** This document preserves the original
+> maximum-control AWS proposal. It is not the current implementation direction.
+> See the [counterproposal](./counterproposal.md) and
+> [revised plan](./revised-plan.md) for the subsequent analysis and decisions.
+
 ## Summary
 
 Create a new private `todd-brunia/client-portal` repository containing a cost-sensitive client review hub that runs fully through Docker Compose locally and deploys to AWS.

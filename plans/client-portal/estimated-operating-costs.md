@@ -1,5 +1,12 @@
 # Client Portal Estimated Operating Costs
 
+> [!IMPORTANT]
+> **Historical estimate.** These figures apply only to the superseded
+> AWS-centered [initial plan](./initial-plan.md). They must not be used to budget
+> or approve the Vercel, Supabase, Stripe, and external-signature direction in
+> the [revised plan](./revised-plan.md). That plan requires a separate
+> `revised-estimated-operating-costs.md` before implementation approval.
+
 ## Purpose
 
 This document provides a planning estimate for the client portal's operating costs as it grows from local development into a production AWS application with proposal, agreement, invoice, communication, and AI-assisted workflows.

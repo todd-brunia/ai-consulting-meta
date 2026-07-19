@@ -1,0 +1,20 @@
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+
+# Private working material must never be committed to this public repository
+client-data/
+private/
+secrets/
+
+# Local tooling and operating-system files
+.DS_Store
+.idea/
+.vscode/
+*.log
