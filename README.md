@@ -15,11 +15,13 @@ Planning documents are grouped by initiative under `plans/`:
 
 ```text
 plans/
-└── client-portal/
-    ├── initial-plan.md
-    ├── counterproposal.md
-    ├── estimated-operating-costs.md
-    └── revised-plan.md
+├── client-portal/
+│   ├── initial-plan.md
+│   ├── counterproposal.md
+│   ├── estimated-operating-costs.md
+│   └── revised-plan.md
+└── governed-codex-automation/
+    └── client-sharing-plan.md
 ```
 
 Each initiative should have its own directory. Documents should use clear, stable names that communicate their purpose or planning stage.
@@ -68,3 +70,10 @@ otherwise. Public visibility provides transparency, not permission to reuse
 the work. See [COPYRIGHT.md](./COPYRIGHT.md).
 
 The first initiative captured here is the incremental client portal, planned as a separate application repository under the `todd-brunia` GitHub account.
+
+## Governed Codex automation
+
+The [client-sharing plan](./plans/governed-codex-automation/client-sharing-plan.md)
+describes how the internal label-driven Codex workflow could evolve into a
+versioned, client-owned consulting accelerator without turning this planning
+repository into its implementation or distribution repository.
