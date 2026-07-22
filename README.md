@@ -58,6 +58,9 @@ process:
    — costs for the initial architecture, not the revised direction.
 4. [Revised plan](./plans/client-portal/revised-plan.md) — the current working
    direction based on human review of the proposal and counterproposal.
+5. [Readiness checkpoint — 2026-07-21](./plans/client-portal/readiness-checkpoint-2026-07-21.md)
+   — a point-in-time record of local-development readiness and the recommended
+   place to resume.
 
 Preserving these documents is deliberate. A superseded proposal is evidence of
 how the decision evolved, not current implementation guidance.
