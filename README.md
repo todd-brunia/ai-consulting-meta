@@ -13,18 +13,16 @@ polished final answer.
 
 Planning documents are grouped by initiative under `plans/`:
 
-```text
-plans/
-├── client-portal/
-│   ├── initial-plan.md
-│   ├── counterproposal.md
-│   ├── estimated-operating-costs.md
-│   └── revised-plan.md
-└── governed-codex-automation/
-    └── client-sharing-plan.md
-```
+Each initiative has its own directory and a human-readable index. Start with
+the [client portal planning index](./plans/client-portal/index.md) for the
+portal's current direction, design references, checkpoints, and decision
+history. The
+[governed Codex automation planning index](./plans/governed-codex-automation/index.md)
+introduces the other currently published initiative and links to its current
+working plan.
 
-Each initiative should have its own directory. Documents should use clear, stable names that communicate their purpose or planning stage.
+Documents use clear, stable names that communicate their purpose or planning
+stage.
 
 ## Working convention
 
@@ -48,7 +46,10 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for the publication review and
 ## Client portal planning history
 
 The client portal documents intentionally preserve the back-and-forth planning
-process:
+process. The
+[client portal planning index](./plans/client-portal/index.md) is the primary
+entry point and provides current reading paths for implementation, strategy,
+and readiness review.
 
 1. [Initial plan](./plans/client-portal/initial-plan.md) — the historical,
    maximum-control AWS design.
@@ -58,12 +59,26 @@ process:
    — costs for the initial architecture, not the revised direction.
 4. [Revised plan](./plans/client-portal/revised-plan.md) — the current working
    direction based on human review of the proposal and counterproposal.
-5. [Readiness checkpoint — 2026-07-21](./plans/client-portal/readiness-checkpoint-2026-07-21.md)
-   — a point-in-time record of local-development readiness and the recommended
-   place to resume.
+5. [Domain model](./plans/client-portal/domain-model.md) — the current
+   conceptual model and business invariants.
+6. [Authentication design](./plans/client-portal/authentication-design.md) —
+   the current identity, session, invitation, notification, and machine-access
+   design.
+7. [Latest readiness checkpoint — 2026-07-22](./plans/client-portal/readiness-checkpoint-2026-07-22.md)
+   — the current implementation handoff and recommended place to resume.
 
 Preserving these documents is deliberate. A superseded proposal is evidence of
 how the decision evolved, not current implementation guidance.
+
+## Governed Codex automation
+
+The
+[governed Codex automation planning index](./plans/governed-codex-automation/index.md)
+is the entry point for this initiative. Its current
+[client-sharing plan](./plans/governed-codex-automation/client-sharing-plan.md)
+describes how the internal label-driven Codex workflow could evolve into a
+versioned, client-owned consulting accelerator without turning this planning
+repository into its implementation or distribution repository.
 
 ## Reuse
 
@@ -71,12 +86,3 @@ Copyright © 2026 Todd Brunia. All rights reserved. No license to copy, modify,
 or redistribute this material is granted unless a file explicitly states
 otherwise. Public visibility provides transparency, not permission to reuse
 the work. See [COPYRIGHT.md](./COPYRIGHT.md).
-
-The first initiative captured here is the incremental client portal, planned as a separate application repository under the `todd-brunia` GitHub account.
-
-## Governed Codex automation
-
-The [client-sharing plan](./plans/governed-codex-automation/client-sharing-plan.md)
-describes how the internal label-driven Codex workflow could evolve into a
-versioned, client-owned consulting accelerator without turning this planning
-repository into its implementation or distribution repository.
