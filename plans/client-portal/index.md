@@ -6,9 +6,11 @@ This folder records the strategy, architecture, domain design, operating-cost
 estimates, and implementation checkpoints for the AI consulting client portal.
 The documents include both current direction and preserved decision history.
 
-For the current implementation position, begin with the
-[revised plan](./revised-plan.md), then read the latest
-[readiness checkpoint](./readiness-checkpoint-2026-07-22.md).
+For strategic direction, begin with the
+[revised plan](./revised-plan.md). For current capability sequencing, read the
+[feature roadmap](./feature-roadmap.md), then consult the latest
+[readiness checkpoint](./readiness-checkpoint-2026-07-22.md) for point-in-time
+evidence.
 
 ## Current direction
 
@@ -22,6 +24,16 @@ measures.
 
 Use this as the primary planning document when evaluating scope or proposing
 new work.
+
+### [Feature roadmap](./feature-roadmap.md)
+
+The current feature sequence. It distinguishes implemented local foundations
+from recommended collaboration, document-review, commercial-handoff, and
+human-gated AI phases, with supporting production-readiness tracks and evidence
+gates.
+
+Use this when choosing the next bounded feature. Individual roadmap items still
+require their own planning and approval.
 
 ### [Domain model](./domain-model.md)
 
@@ -103,9 +115,10 @@ current direction because it supersedes the initial plan where they conflict.
 ### Continue implementation
 
 1. [Revised plan](./revised-plan.md)
-2. [Latest readiness checkpoint](./readiness-checkpoint-2026-07-22.md)
-3. [Domain model](./domain-model.md)
-4. [Authentication design](./authentication-design.md), when the change
+2. [Feature roadmap](./feature-roadmap.md)
+3. [Latest readiness checkpoint](./readiness-checkpoint-2026-07-22.md)
+4. [Domain model](./domain-model.md)
+5. [Authentication design](./authentication-design.md), when the change
    touches identity or access
 
 ### Understand the strategic evolution
