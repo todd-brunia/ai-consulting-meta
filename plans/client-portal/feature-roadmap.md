@@ -17,6 +17,13 @@ implementation. Each feature should preserve tenant isolation, use the
 versioned JSON:API boundary for reusable application behavior, and add
 applicable browser regression coverage.
 
+Visual companions:
+
+- Explore phase-specific screens in the
+  [interactive wireframe gallery](./wireframes/gallery.html).
+- Present the sequence through the
+  [client-and-staff storyboard](./storyboard/client-portal-storyboard.html).
+
 ## Roadmap principles
 
 - Build the client collaboration loop before adding broad integrations.

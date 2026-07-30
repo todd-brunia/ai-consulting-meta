@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Low-fidelity client portal feature roadmap wireframes."
+    >
+    <title>Client Portal Wireframe Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="planning-banner">
+      Planning prototype — fictional data, no backend, authentication, or production behavior
+    </div>
+    <main class="page-shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">Client portal · visual planning</p>
+          <h1>Feature roadmap wireframes</h1>
+          <p class="lede">
+            A low-fidelity screen catalog for exploring implemented foundations,
+            proposed collaboration features, security boundaries, and deferred
+            scope without implying finished visual design.
+          </p>
+        </div>
+        <nav class="header-links" aria-label="Planning artifact links">
+          <a class="text-link" href="../feature-roadmap.md">Feature roadmap</a>
+          <a class="text-link" href="../storyboard/client-portal-storyboard.html">Open storyboard</a>
+          <a class="text-link" href="index.md">Wireframe notes</a>
+        </nav>
+      </header>
+
+      <section class="controls" aria-label="Wireframe filters">
+        <label class="control" for="role-filter">
+          Role
+          <select id="role-filter">
+            <option value="all">All roles</option>
+            <option value="client">Client</option>
+            <option value="staff">Staff</option>
+          </select>
+        </label>
+        <label class="control" for="phase-filter">
+          Roadmap phase
+          <select id="phase-filter">
+            <option value="all">All phases</option>
+            <option value="implemented">Implemented foundations</option>
+            <option value="phase-1">Phase 1 — Timeline</option>
+            <option value="phase-2">Phase 2 — Proposal</option>
+            <option value="phase-3">Phase 3 — Agreement</option>
+            <option value="phase-4">Phase 4 — Handoff</option>
+            <option value="phase-5">Phase 5 — AI draft</option>
+          </select>
+        </label>
+        <label class="control" for="state-filter">
+          State
+          <select id="state-filter">
+            <option value="all">All states</option>
+            <option value="happy">Happy path</option>
+            <option value="empty">Empty</option>
+            <option value="error">Error / unavailable</option>
+          </select>
+        </label>
+        <div class="control">
+          Viewport
+          <div class="view-controls">
+            <button
+              class="control-button"
+              type="button"
+              data-viewport-button="desktop"
+              aria-pressed="true"
+            >Desktop</button>
+            <button
+              class="control-button"
+              type="button"
+              data-viewport-button="mobile"
+              aria-pressed="false"
+            >Mobile</button>
+          </div>
+        </div>
+      </section>
+
+      <p class="results-summary" data-results-summary aria-live="polite"></p>
+      <section
+        class="gallery"
+        data-gallery
+        data-viewport="desktop"
+        aria-label="Client portal wireframes"
+      ></section>
+    </main>
+    <script src="screens.js"></script>
+    <script src="gallery.js"></script>
+  </body>
+</html>

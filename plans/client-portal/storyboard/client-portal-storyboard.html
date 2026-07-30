@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Client portal feature roadmap storyboard presentation."
+    >
+    <title>Client Portal Feature Storyboard</title>
+    <link rel="stylesheet" href="../wireframes/styles.css">
+    <link rel="stylesheet" href="storyboard.css">
+  </head>
+  <body>
+    <div class="planning-banner">
+      Storyboard prototype — roadmap phases, fictional data, no production behavior
+    </div>
+    <main class="deck">
+      <div class="slides" aria-live="polite">
+        <section
+          class="slide slide--title"
+          aria-hidden="false"
+          data-title="Feature roadmap"
+          data-phase="Roadmap overview"
+        >
+          <div class="title-block">
+            <p class="eyebrow">Client portal · storyboard presentation</p>
+            <h1>From access to human-gated AI</h1>
+            <p class="lede">
+              A fictional engagement journey through the ordered phases in the
+              client portal feature roadmap. Use the arrow keys to move through
+              the story or press O for slide overview.
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="Feature sequence"
+          data-phase="Roadmap overview"
+        >
+          <div class="sequence">
+            <p class="eyebrow">The feature sequence</p>
+            <h2>Build the human workflow before automating it.</h2>
+            <div class="sequence-row sequence-row--implemented">
+              <div class="sequence-phase">Implemented</div>
+              <div class="sequence-feature"><strong>Secure foundations</strong>Authentication, tenant workspace, invitations, JSON:API, machine access, and regression coverage.</div>
+              <div class="sequence-evidence"><strong>Enables</strong>A known identity, organization boundary, engagement, and safely tested delivery path.</div>
+            </div>
+            <div class="sequence-row">
+              <div class="sequence-phase">Phase 1</div>
+              <div class="sequence-feature"><strong>Conversation and timeline</strong>Client-visible messages plus deterministic activity history.</div>
+              <div class="sequence-evidence"><strong>Evidence gate</strong>Does one shared context reduce email and disconnected documents?</div>
+            </div>
+            <div class="sequence-row">
+              <div class="sequence-phase">Phase 2</div>
+              <div class="sequence-feature"><strong>Proposal versions and review</strong>Immutable publication, change requests, and version-specific approval.</div>
+              <div class="sequence-evidence"><strong>Evidence gate</strong>What proposal revision patterns occur in practice?</div>
+            </div>
+            <div class="sequence-row">
+              <div class="sequence-phase">Phase 3</div>
+              <div class="sequence-feature"><strong>Agreement and signing handoff</strong>Business approval with an external legal-signing boundary.</div>
+              <div class="sequence-evidence"><strong>Evidence gate</strong>Which provider state is useful inside the portal?</div>
+            </div>
+            <div class="sequence-row">
+              <div class="sequence-phase">Phase 4</div>
+              <div class="sequence-feature"><strong>Deposit and delivery handoff</strong>Manual Stripe reference, observed deposit, and Slack transition.</div>
+              <div class="sequence-evidence"><strong>Evidence gate</strong>Is synchronization more valuable than a reliable manual link?</div>
+            </div>
+            <div class="sequence-row">
+              <div class="sequence-phase">Phase 5</div>
+              <div class="sequence-feature"><strong>One human-gated AI draft</strong>Private generation, revision evidence, and deliberate human publication.</div>
+              <div class="sequence-evidence"><strong>Evidence gate</strong>Does drafting assistance save time without weakening control?</div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="Authenticated entry"
+          data-phase="Implemented foundations"
+        >
+          <div class="slide__grid">
+            <div class="slide__copy">
+              <span class="slide__number">01</span>
+              <div class="phase-marker phase-marker--implemented">Implemented foundations</div>
+              <h2>Alex follows a staff-issued invitation.</h2>
+              <p>
+                Authentication establishes who Alex is. The invitation and active
+                organization membership—not sign-in alone—determine what Alex may see.
+              </p>
+              <div class="story-beat">
+                <strong>Roadmap role</strong>
+                <p>Provides the secure identity and tenant boundary required by every later phase.</p>
+              </div>
+            </div>
+            <div class="slide__visual" data-screen="login"></div>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="Tenant workspace"
+          data-phase="Implemented foundations"
+        >
+          <div class="slide__grid">
+            <div class="slide__copy">
+              <span class="slide__number">02</span>
+              <div class="phase-marker phase-marker--implemented">Implemented foundations</div>
+              <h2>Alex arrives in one tenant-scoped workspace.</h2>
+              <p>
+                The existing engagement summary establishes context but does not yet
+                provide a collaboration loop.
+              </p>
+              <div class="story-beat">
+                <strong>Transition to Phase 1</strong>
+                <p>The next useful capability is shared conversation and activity around this engagement.</p>
+              </div>
+            </div>
+            <div class="slide__visual" data-screen="workspace"></div>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="Conversation"
+          data-phase="Phase 1 — Engagement conversation and activity timeline"
+        >
+          <div class="slide__grid">
+            <div class="slide__copy">
+              <span class="slide__number">03</span>
+              <div class="phase-marker">Phase 1 · Conversation + timeline</div>
+              <h2>Todd and Alex preserve the commercial discussion.</h2>
+              <p>
+                Client-visible messages and append-only activity create one ordered
+                context. Staff-only notes remain a separately authorized future slice.
+              </p>
+              <div class="story-beat">
+                <strong>Evidence to collect</strong>
+                <p>Whether the shared timeline reduces email, repeated questions, and context transfer.</p>
+              </div>
+            </div>
+            <div class="slide__visual" data-screen="timeline"></div>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="Proposal review"
+          data-phase="Phase 2 — Immutable proposal versions and client review"
+        >
+          <div class="slide__grid">
+            <div class="slide__copy">
+              <span class="slide__number">04</span>
+              <div class="phase-marker">Phase 2 · Proposal review</div>
+              <h2>Todd publishes a proposal version for review.</h2>
+              <p>
+                Alex’s decision attaches to exactly version 2. A change request can
+                lead to version 3, but approval never transfers forward.
+              </p>
+              <div class="story-beat">
+                <strong>Depends on Phase 1</strong>
+                <p>Proposal publication and review decisions become activity in the same engagement timeline.</p>
+              </div>
+            </div>
+            <div class="slide__visual" data-screen="proposal-review"></div>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="Agreement handoff"
+          data-phase="Phase 3 — Agreement review and external signing handoff"
+        >
+          <div class="slide__grid">
+            <div class="slide__copy">
+              <span class="slide__number">05</span>
+              <div class="phase-marker">Phase 3 · Agreement handoff</div>
+              <h2>Business approval stays distinct from legal signing.</h2>
+              <p>
+                The portal records review of the displayed agreement. A selected
+                provider owns the legal ceremony, evidence, and completed record.
+              </p>
+              <div class="story-beat">
+                <strong>Managed-service boundary</strong>
+                <p>Custom software preserves context; it does not recreate a signature provider.</p>
+              </div>
+            </div>
+            <div class="slide__visual" data-screen="agreement-handoff"></div>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="Commercial handoff"
+          data-phase="Phase 4 — Commercial completion and delivery handoff"
+        >
+          <div class="slide__grid">
+            <div class="slide__copy">
+              <span class="slide__number">06</span>
+              <div class="phase-marker">Phase 4 · Commercial handoff</div>
+              <h2>A deposit observation moves work into delivery.</h2>
+              <p>
+                Stripe remains the financial record. The portal captures only the
+                useful milestone, then records that delivery conversation moved to Slack.
+              </p>
+              <div class="story-beat">
+                <strong>Evidence before automation</strong>
+                <p>Measure whether manual references are enough before adding webhook and reconciliation complexity.</p>
+              </div>
+            </div>
+            <div class="slide__visual" data-screen="commercial-handoff"></div>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="AI draft"
+          data-phase="Phase 5 — One bounded human-gated AI drafting workflow"
+        >
+          <div class="slide__grid">
+            <div class="slide__copy">
+              <span class="slide__number">07</span>
+              <div class="phase-marker">Phase 5 · Human-gated AI draft</div>
+              <h2>AI assists only after the human workflow is understood.</h2>
+              <p>
+                The model produces a private attributed draft. Todd reviews, edits,
+                and separately chooses whether anything becomes client-visible.
+              </p>
+              <div class="story-beat">
+                <strong>Success measure</strong>
+                <p>Track edit distance, acceptance, time saved, failures, latency, tokens, and cost.</p>
+              </div>
+            </div>
+            <div class="slide__visual" data-screen="ai-draft"></div>
+          </div>
+        </section>
+
+        <section
+          class="slide slide--title"
+          aria-hidden="true"
+          data-title="Recommendation"
+          data-phase="Next decision"
+        >
+          <div class="title-block">
+            <p class="eyebrow">Recommended next decision</p>
+            <h1>Begin with Phase 1.</h1>
+            <p class="lede">
+              Plan one bounded engagement-message and activity-timeline slice.
+              Keep unread state, notifications, attachments, staff notes, document
+              review, and AI drafting explicitly deferred until the basic
+              collaboration loop is proven.
+            </p>
+            <div class="button-row">
+              <a class="text-link" href="../wireframes/gallery.html">Explore all wireframes</a>
+              <a class="text-link" href="../feature-roadmap.md">Read the feature roadmap</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <nav class="deck-controls" aria-label="Presentation controls">
+        <button class="deck-button" type="button" data-previous>← Previous</button>
+        <div class="deck-progress" aria-hidden="true">
+          <div class="deck-progress__bar" data-progress></div>
+        </div>
+        <span class="deck-count" data-count></span>
+        <button
+          class="deck-button"
+          type="button"
+          data-overview-toggle
+          aria-expanded="false"
+        >Overview</button>
+        <button class="deck-button" type="button" data-next>Next →</button>
+        <a class="deck-link" href="index.md">Presentation notes</a>
+      </nav>
+    </main>
+    <div
+      class="overview"
+      data-overview
+      data-open="false"
+      aria-label="Slide overview"
+    ></div>
+    <script src="../wireframes/screens.js"></script>
+    <script src="deck.js"></script>
+  </body>
+</html>

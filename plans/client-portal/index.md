@@ -35,6 +35,20 @@ gates.
 Use this when choosing the next bounded feature. Individual roadmap items still
 require their own planning and approval.
 
+## Visual exploration
+
+### [Wireframe gallery](./wireframes/index.md)
+
+The low-fidelity visual source of truth for implemented foundations and every
+recommended roadmap phase. The interactive gallery filters by role, phase, and
+state and simulates desktop or mobile framing without application behavior.
+
+### [Storyboard presentation](./storyboard/index.md)
+
+The guided client-and-staff journey through the feature sequence. The HTML
+presentation reuses the shared wireframes, names each roadmap phase, and
+explains its dependency or evidence gate.
+
 ### [Domain model](./domain-model.md)
 
 The conceptual model and invariants for identities, organizations,
@@ -116,9 +130,11 @@ current direction because it supersedes the initial plan where they conflict.
 
 1. [Revised plan](./revised-plan.md)
 2. [Feature roadmap](./feature-roadmap.md)
-3. [Latest readiness checkpoint](./readiness-checkpoint-2026-07-22.md)
-4. [Domain model](./domain-model.md)
-5. [Authentication design](./authentication-design.md), when the change
+3. [Storyboard presentation](./storyboard/index.md)
+4. [Wireframe gallery](./wireframes/index.md)
+5. [Latest readiness checkpoint](./readiness-checkpoint-2026-07-22.md)
+6. [Domain model](./domain-model.md)
+7. [Authentication design](./authentication-design.md), when the change
    touches identity or access
 
 ### Understand the strategic evolution
