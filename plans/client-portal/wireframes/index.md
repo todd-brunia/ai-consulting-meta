@@ -16,12 +16,15 @@ The gallery explicitly maps its screens to the ordered phases in
 
 1. Implemented local foundations: authenticated entry, tenant workspace, and
    staff invitation management.
-2. Phase 1: engagement conversation, activity timeline, empty state, and
+2. Phase 1: public inquiry, neutral acknowledgment, consultant review queue,
+   private AI briefing, qualification, workspace preparation, and deliberate
+   invitation.
+3. Phase 2: engagement conversation, activity timeline, empty state, and
    non-disclosing access failure.
-3. Phase 2: immutable proposal version review.
-4. Phase 3: agreement approval and external signing handoff.
-5. Phase 4: deposit observation and Slack delivery handoff.
-6. Phase 5: one private, human-gated AI proposal draft.
+4. Phase 3: immutable proposal version review.
+5. Phase 4: agreement approval and external signing handoff.
+6. Phase 5: deposit observation and Slack delivery handoff.
+7. Phase 6: one private, human-gated AI proposal draft.
 
 Each screen identifies its role, state, implementation status, authorization
 boundary, and intentionally deferred scope.

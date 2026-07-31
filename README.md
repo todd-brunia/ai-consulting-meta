@@ -66,6 +66,12 @@ and readiness review.
    design.
 7. [Latest readiness checkpoint — 2026-07-22](./plans/client-portal/readiness-checkpoint-2026-07-22.md)
    — the current implementation handoff and recommended place to resume.
+8. [Inquiry onboarding workflow](./plans/client-portal/inquiry-onboarding-workflow.md)
+   — the proposed consultant-reviewed path from public inquiry to deliberate
+   portal invitation and activation.
+9. [Multi-tenant platform architecture](./plans/client-portal/multi-tenant-platform-architecture.md)
+   — the proposed productization path from one consulting practice to
+   configurable shared SaaS and later evidence-driven deployment options.
 
 Preserving these documents is deliberate. A superseded proposal is evidence of
 how the decision evolved, not current implementation guidance.
@@ -79,6 +85,12 @@ is the entry point for this initiative. Its current
 describes how the internal label-driven Codex workflow could evolve into a
 versioned, client-owned consulting accelerator without turning this planning
 repository into its implementation or distribution repository.
+
+The proposed
+[goal-to-deployment pipeline](./plans/governed-codex-automation/goal-to-deployment-pipeline.md)
+defines a separate evolution from high-level business goals through epics,
+issues, plans, builds, and pull requests while keeping GitHub authoritative and
+human approval at milestone checkpoints.
 
 ## Reuse
 

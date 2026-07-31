@@ -25,7 +25,7 @@
         >
           <div class="title-block">
             <p class="eyebrow">Client portal · storyboard presentation</p>
-            <h1>From access to human-gated AI</h1>
+            <h1>From inquiry to human-gated AI</h1>
             <p class="lede">
               A fictional engagement journey through the ordered phases in the
               client portal feature roadmap. Use the arrow keys to move through
@@ -50,29 +50,132 @@
             </div>
             <div class="sequence-row">
               <div class="sequence-phase">Phase 1</div>
+              <div class="sequence-feature"><strong>Inquiry and approved onboarding</strong>Neutral receipt, AI-prepared review, human qualification, workspace preparation, and deliberate invitation.</div>
+              <div class="sequence-evidence"><strong>Evidence gate</strong>Can staff review prospects efficiently without admitting unqualified submissions?</div>
+            </div>
+            <div class="sequence-row">
+              <div class="sequence-phase">Phase 2</div>
               <div class="sequence-feature"><strong>Conversation and timeline</strong>Client-visible messages plus deterministic activity history.</div>
               <div class="sequence-evidence"><strong>Evidence gate</strong>Does one shared context reduce email and disconnected documents?</div>
             </div>
             <div class="sequence-row">
-              <div class="sequence-phase">Phase 2</div>
+              <div class="sequence-phase">Phase 3</div>
               <div class="sequence-feature"><strong>Proposal versions and review</strong>Immutable publication, change requests, and version-specific approval.</div>
               <div class="sequence-evidence"><strong>Evidence gate</strong>What proposal revision patterns occur in practice?</div>
             </div>
             <div class="sequence-row">
-              <div class="sequence-phase">Phase 3</div>
+              <div class="sequence-phase">Phase 4</div>
               <div class="sequence-feature"><strong>Agreement and signing handoff</strong>Business approval with an external legal-signing boundary.</div>
               <div class="sequence-evidence"><strong>Evidence gate</strong>Which provider state is useful inside the portal?</div>
             </div>
             <div class="sequence-row">
-              <div class="sequence-phase">Phase 4</div>
+              <div class="sequence-phase">Phase 5</div>
               <div class="sequence-feature"><strong>Deposit and delivery handoff</strong>Manual Stripe reference, observed deposit, and Slack transition.</div>
               <div class="sequence-evidence"><strong>Evidence gate</strong>Is synchronization more valuable than a reliable manual link?</div>
             </div>
             <div class="sequence-row">
-              <div class="sequence-phase">Phase 5</div>
+              <div class="sequence-phase">Phase 6</div>
               <div class="sequence-feature"><strong>One human-gated AI draft</strong>Private generation, revision evidence, and deliberate human publication.</div>
               <div class="sequence-evidence"><strong>Evidence gate</strong>Does drafting assistance save time without weakening control?</div>
             </div>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="Public inquiry"
+          data-phase="Phase 1 — Inquiry intake and consultant-approved onboarding"
+        >
+          <div class="slide__grid">
+            <div class="slide__copy">
+              <span class="slide__number">01</span>
+              <div class="phase-marker">Phase 1 · Inquiry intake</div>
+              <h2>Alex asks for help without creating an account.</h2>
+              <p>
+                The public website collects enough context for an initial fit
+                review. The submission creates only a private inquiry and staff
+                review context.
+              </p>
+              <div class="story-beat">
+                <strong>Trust boundary</strong>
+                <p>Public content is untrusted and cannot qualify a prospect, provision a tenant, or trigger an invitation.</p>
+              </div>
+            </div>
+            <div class="slide__visual" data-screen="inquiry-form"></div>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="Inquiry confirmation"
+          data-phase="Phase 1 — Inquiry intake and consultant-approved onboarding"
+        >
+          <div class="slide__grid">
+            <div class="slide__copy">
+              <span class="slide__number">02</span>
+              <div class="phase-marker">Phase 1 · Neutral acknowledgment</div>
+              <h2>Alex knows the inquiry arrived—and nothing more.</h2>
+              <p>
+                The acknowledgment is prompt but deliberately avoids promising
+                acceptance, a response time, or portal access.
+              </p>
+              <div class="story-beat">
+                <strong>Experience principle</strong>
+                <p>The later portal invitation should feel intentionally prepared, not automatically generated by a form.</p>
+              </div>
+            </div>
+            <div class="slide__visual" data-screen="inquiry-confirmation"></div>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="Consultant review"
+          data-phase="Phase 1 — Inquiry intake and consultant-approved onboarding"
+        >
+          <div class="slide__grid">
+            <div class="slide__copy">
+              <span class="slide__number">03</span>
+              <div class="phase-marker">Phase 1 · Consultant decision</div>
+              <h2>AI prepares the review; Todd makes the decision.</h2>
+              <p>
+                Submitted facts, AI inferences, missing information, and
+                suggested discovery questions appear together. Todd can follow
+                up, decline, or qualify the inquiry.
+              </p>
+              <div class="story-beat">
+                <strong>Human checkpoint</strong>
+                <p>AI cannot qualify, decline, contact the prospect, provision a workspace, or invite a client.</p>
+              </div>
+            </div>
+            <div class="slide__visual" data-screen="inquiry-briefing"></div>
+          </div>
+        </section>
+
+        <section
+          class="slide"
+          aria-hidden="true"
+          data-title="Prepared onboarding"
+          data-phase="Phase 1 — Inquiry intake and consultant-approved onboarding"
+        >
+          <div class="slide__grid">
+            <div class="slide__copy">
+              <span class="slide__number">04</span>
+              <div class="phase-marker">Phase 1 · Deliberate invitation</div>
+              <h2>Todd prepares the workspace before inviting Alex.</h2>
+              <p>
+                Qualification, workspace preparation, invitation sending, and
+                membership activation remain separate, attributable steps.
+              </p>
+              <div class="story-beat">
+                <strong>Access boundary</strong>
+                <p>The prepared workspace is not client-visible. Only accepting the staff-issued invitation activates membership.</p>
+              </div>
+            </div>
+            <div class="slide__visual" data-screen="onboarding-preparation"></div>
           </div>
         </section>
 
@@ -84,7 +187,7 @@
         >
           <div class="slide__grid">
             <div class="slide__copy">
-              <span class="slide__number">01</span>
+              <span class="slide__number">05</span>
               <div class="phase-marker phase-marker--implemented">Implemented foundations</div>
               <h2>Alex follows a staff-issued invitation.</h2>
               <p>
@@ -108,7 +211,7 @@
         >
           <div class="slide__grid">
             <div class="slide__copy">
-              <span class="slide__number">02</span>
+              <span class="slide__number">06</span>
               <div class="phase-marker phase-marker--implemented">Implemented foundations</div>
               <h2>Alex arrives in one tenant-scoped workspace.</h2>
               <p>
@@ -116,7 +219,7 @@
                 provide a collaboration loop.
               </p>
               <div class="story-beat">
-                <strong>Transition to Phase 1</strong>
+                <strong>Transition to Phase 2</strong>
                 <p>The next useful capability is shared conversation and activity around this engagement.</p>
               </div>
             </div>
@@ -128,12 +231,12 @@
           class="slide"
           aria-hidden="true"
           data-title="Conversation"
-          data-phase="Phase 1 — Engagement conversation and activity timeline"
+          data-phase="Phase 2 — Engagement conversation and activity timeline"
         >
           <div class="slide__grid">
             <div class="slide__copy">
-              <span class="slide__number">03</span>
-              <div class="phase-marker">Phase 1 · Conversation + timeline</div>
+              <span class="slide__number">07</span>
+              <div class="phase-marker">Phase 2 · Conversation + timeline</div>
               <h2>Todd and Alex preserve the commercial discussion.</h2>
               <p>
                 Client-visible messages and append-only activity create one ordered
@@ -152,19 +255,19 @@
           class="slide"
           aria-hidden="true"
           data-title="Proposal review"
-          data-phase="Phase 2 — Immutable proposal versions and client review"
+          data-phase="Phase 3 — Immutable proposal versions and client review"
         >
           <div class="slide__grid">
             <div class="slide__copy">
-              <span class="slide__number">04</span>
-              <div class="phase-marker">Phase 2 · Proposal review</div>
+              <span class="slide__number">08</span>
+              <div class="phase-marker">Phase 3 · Proposal review</div>
               <h2>Todd publishes a proposal version for review.</h2>
               <p>
                 Alex’s decision attaches to exactly version 2. A change request can
                 lead to version 3, but approval never transfers forward.
               </p>
               <div class="story-beat">
-                <strong>Depends on Phase 1</strong>
+                <strong>Depends on Phase 2</strong>
                 <p>Proposal publication and review decisions become activity in the same engagement timeline.</p>
               </div>
             </div>
@@ -176,12 +279,12 @@
           class="slide"
           aria-hidden="true"
           data-title="Agreement handoff"
-          data-phase="Phase 3 — Agreement review and external signing handoff"
+          data-phase="Phase 4 — Agreement review and external signing handoff"
         >
           <div class="slide__grid">
             <div class="slide__copy">
-              <span class="slide__number">05</span>
-              <div class="phase-marker">Phase 3 · Agreement handoff</div>
+              <span class="slide__number">09</span>
+              <div class="phase-marker">Phase 4 · Agreement handoff</div>
               <h2>Business approval stays distinct from legal signing.</h2>
               <p>
                 The portal records review of the displayed agreement. A selected
@@ -200,12 +303,12 @@
           class="slide"
           aria-hidden="true"
           data-title="Commercial handoff"
-          data-phase="Phase 4 — Commercial completion and delivery handoff"
+          data-phase="Phase 5 — Commercial completion and delivery handoff"
         >
           <div class="slide__grid">
             <div class="slide__copy">
-              <span class="slide__number">06</span>
-              <div class="phase-marker">Phase 4 · Commercial handoff</div>
+              <span class="slide__number">10</span>
+              <div class="phase-marker">Phase 5 · Commercial handoff</div>
               <h2>A deposit observation moves work into delivery.</h2>
               <p>
                 Stripe remains the financial record. The portal captures only the
@@ -224,12 +327,12 @@
           class="slide"
           aria-hidden="true"
           data-title="AI draft"
-          data-phase="Phase 5 — One bounded human-gated AI drafting workflow"
+          data-phase="Phase 6 — One bounded human-gated AI drafting workflow"
         >
           <div class="slide__grid">
             <div class="slide__copy">
-              <span class="slide__number">07</span>
-              <div class="phase-marker">Phase 5 · Human-gated AI draft</div>
+              <span class="slide__number">11</span>
+              <div class="phase-marker">Phase 6 · Human-gated AI draft</div>
               <h2>AI assists only after the human workflow is understood.</h2>
               <p>
                 The model produces a private attributed draft. Todd reviews, edits,
@@ -254,14 +357,16 @@
             <p class="eyebrow">Recommended next decision</p>
             <h1>Begin with Phase 1.</h1>
             <p class="lede">
-              Plan one bounded engagement-message and activity-timeline slice.
-              Keep unread state, notifications, attachments, staff notes, document
-              review, and AI drafting explicitly deferred until the basic
-              collaboration loop is proven.
+              Plan a bounded inquiry-to-invitation slice: durable intake,
+              neutral acknowledgment, staff review states, consultant
+              qualification, retry-safe workspace preparation, and deliberate
+              invitation. Add the private AI briefing only after the human path
+              is proven or as an isolated staff-only experiment.
             </p>
             <div class="button-row">
               <a class="text-link" href="../wireframes/gallery.html">Explore all wireframes</a>
               <a class="text-link" href="../feature-roadmap.md">Read the feature roadmap</a>
+              <a class="text-link" href="../inquiry-onboarding-workflow.md">Read the onboarding plan</a>
             </div>
           </div>
         </section>

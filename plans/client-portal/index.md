@@ -35,6 +35,28 @@ gates.
 Use this when choosing the next bounded feature. Individual roadmap items still
 require their own planning and approval.
 
+### [Inquiry intake and client onboarding workflow](./inquiry-onboarding-workflow.md)
+
+The proposed lifecycle from unauthenticated website inquiry through consultant
+review, organization and workspace provisioning, deliberate invitation, and
+client activation. It makes manual qualification and invitation explicit and
+defines AI as a private advisory briefing rather than an autonomous decision
+maker.
+
+Use this before implementing public inquiry handoff, consultant review,
+prospect communication, provisioning, or invitation automation.
+
+### [Multi-tenant consulting platform architecture](./multi-tenant-platform-architecture.md)
+
+The proposed path from the single consulting practice to a configurable,
+tenant-aware platform. It distinguishes operating tenants from their client
+organizations, defines configuration and extension boundaries, and sequences
+shared SaaS before evidence-driven dedicated or self-hosted options.
+
+Use this when a change affects tenant identity, branding, provider
+configuration, workflow customization, product packaging, or deployment
+strategy.
+
 ## Visual exploration
 
 ### [Wireframe gallery](./wireframes/index.md)
@@ -130,11 +152,15 @@ current direction because it supersedes the initial plan where they conflict.
 
 1. [Revised plan](./revised-plan.md)
 2. [Feature roadmap](./feature-roadmap.md)
-3. [Storyboard presentation](./storyboard/index.md)
-4. [Wireframe gallery](./wireframes/index.md)
-5. [Latest readiness checkpoint](./readiness-checkpoint-2026-07-22.md)
-6. [Domain model](./domain-model.md)
-7. [Authentication design](./authentication-design.md), when the change
+3. [Inquiry onboarding workflow](./inquiry-onboarding-workflow.md), when the
+   change touches prospect intake or onboarding
+4. [Multi-tenant platform architecture](./multi-tenant-platform-architecture.md),
+   when the change affects tenant or product boundaries
+5. [Storyboard presentation](./storyboard/index.md)
+6. [Wireframe gallery](./wireframes/index.md)
+7. [Latest readiness checkpoint](./readiness-checkpoint-2026-07-22.md)
+8. [Domain model](./domain-model.md)
+9. [Authentication design](./authentication-design.md), when the change
    touches identity or access
 
 ### Understand the strategic evolution

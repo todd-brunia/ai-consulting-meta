@@ -17,6 +17,7 @@
       "phase-3": "Phase 3",
       "phase-4": "Phase 4",
       "phase-5": "Phase 5",
+      "phase-6": "Phase 6",
     };
     return labels[phase] ?? phase;
   }

@@ -315,6 +315,17 @@ p {
   background: #fff;
 }
 
+.public-site {
+  min-height: 420px;
+  background: #fff;
+}
+
+.public-site__main {
+  width: min(100% - 2rem, 580px);
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
 .portal__nav {
   display: flex;
   align-items: center;
@@ -342,6 +353,97 @@ p {
   display: grid;
   grid-template-columns: 150px minmax(0, 1fr);
   min-height: 380px;
+}
+
+.confirmation-state {
+  display: grid;
+  min-height: 310px;
+  align-content: center;
+  justify-items: start;
+}
+
+.confirmation-state > p {
+  max-width: 52ch;
+}
+
+.confirmation-mark {
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-bottom: 1rem;
+  place-items: center;
+  border: 2px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--implemented);
+  font-weight: 900;
+}
+
+.review-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 0.75rem;
+}
+
+.review-list {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+}
+
+.review-item {
+  display: grid;
+  gap: 0.3rem;
+  border: 1px solid var(--line);
+  padding: 0.7rem;
+  font-size: 0.72rem;
+}
+
+.review-item--selected {
+  border-color: var(--line-strong);
+  background: var(--proposed);
+}
+
+.briefing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.compact-list {
+  margin: 0.4rem 0 0.7rem;
+  padding-left: 1.1rem;
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.decision-row {
+  justify-content: flex-end;
+}
+
+.onboarding-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin: 0.7rem 0 1rem;
+}
+
+.onboarding-step {
+  border: 1px solid var(--line);
+  padding: 0.45rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 750;
+}
+
+.onboarding-step--complete {
+  background: var(--implemented);
+  color: var(--ink);
+}
+
+.onboarding-step--active {
+  border-color: var(--line-strong);
+  background: var(--proposed);
+  color: var(--ink);
 }
 
 .portal__sidebar {
@@ -694,7 +796,10 @@ p {
 
 .gallery[data-viewport="mobile"] .grid-2,
 .gallery[data-viewport="mobile"] .document,
-.gallery[data-viewport="mobile"] .draft-columns {
+.gallery[data-viewport="mobile"] .draft-columns,
+.gallery[data-viewport="mobile"] .review-layout,
+.gallery[data-viewport="mobile"] .briefing-grid,
+.gallery[data-viewport="mobile"] .onboarding-steps {
   grid-template-columns: 1fr;
 }
 

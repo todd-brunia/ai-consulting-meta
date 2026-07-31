@@ -30,11 +30,22 @@ The plan deliberately excludes distributing implementation from this meta
 repository and defers any consultancy-operated, multi-client control plane
 until it has a separate threat model and operating design.
 
+### [Autonomous goal-to-deployment delivery pipeline](./goal-to-deployment-pipeline.md)
+
+**Status: proposed long-term direction — not approved for implementation.**
+
+This plan evolves the current issue-level workflow toward governed
+decomposition of business goals into milestones, epics, issues, plans, builds,
+and pull requests. It keeps GitHub as the system of record, introduces a
+durable state machine behind label projections, preserves human milestone
+checkpoints, and keeps LangGraph replaceable behind an orchestrator interface.
+
 ## Recommended reading path
 
-Read the [client-sharing plan](./client-sharing-plan.md) from beginning to end.
-Its sections progress from product direction and architecture through service
-delivery, implementation phases, interfaces, tests, and explicit boundaries.
+For packaging and client adoption, read the
+[client-sharing plan](./client-sharing-plan.md). For evolution of the internal
+delivery workflow, read the
+[goal-to-deployment pipeline](./goal-to-deployment-pipeline.md).
 
 Before proposing implementation, pay particular attention to:
 
@@ -47,11 +58,14 @@ Before proposing implementation, pay particular attention to:
 
 ## Current next step
 
-The plan requires human review and approval before implementation. If approved,
-the first bounded planning outcome should define the dedicated implementation
-repository and the versioned v1 interface for workflow inputs, named secrets,
-outputs, configuration, permissions, and the supported Node validation
-profile.
+Both plans require human review and approval before implementation.
+
+For client sharing, the first bounded planning outcome remains the dedicated
+implementation repository and versioned v1 workflow interface.
+
+For goal-to-deployment automation, the first bounded outcome is to formalize
+the existing issue-to-pull-request workflow's states, artifacts, approvals,
+idempotency, reconciliation, and recovery before adding goal decomposition.
 
 ## Maintenance
 

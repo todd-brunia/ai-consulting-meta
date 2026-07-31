@@ -112,7 +112,28 @@ production rate limits, and operational alerting remain future work.
 
 ## Recommended feature sequence
 
-### Phase 1 — Engagement conversation and activity timeline
+### Phase 1 — Inquiry intake and consultant-approved onboarding
+
+Complete the path from a public inquiry to an intentionally prepared client
+workspace using the
+[inquiry onboarding workflow](./inquiry-onboarding-workflow.md).
+
+Initial scope:
+
+- Authenticated, idempotent handoff from the public consulting site.
+- Neutral receipt confirmation without automatic account creation.
+- Staff review queue and explicit qualification, decline, spam, and follow-up
+  decisions.
+- Separate consultant-controlled provisioning and invitation actions.
+- Auditable state transitions and retry-safe failure recovery.
+- A private AI briefing only after the human review path is proven or as an
+  isolated staff-only experiment.
+
+Why first: this closes the gap before the current portal's invitation flow and
+provides a controlled way to reach real prospect and client workflows without
+admitting every public submission into the tenant model.
+
+### Phase 2 — Engagement conversation and activity timeline
 
 Build the first complete client collaboration loop around an existing
 engagement.
@@ -135,7 +156,7 @@ commercial context, exercises all existing identity and tenant foundations,
 and creates the activity projection needed by later document and approval
 features.
 
-### Phase 2 — Immutable proposal versions and client review
+### Phase 3 — Immutable proposal versions and client review
 
 Add the first structured review workflow after ordinary engagement
 conversation works.
@@ -154,7 +175,7 @@ Initial scope:
 Publishing a replacement must close outstanding review requests without
 transferring approval from the previous version.
 
-### Phase 3 — Agreement review and external signing handoff
+### Phase 4 — Agreement review and external signing handoff
 
 Reuse the proven document-review behavior for agreements while keeping legal
 signing outside the portal.
@@ -170,7 +191,7 @@ Initial scope:
 Provider selection, webhook synchronization, reconciliation, and production
 legal controls require separate decisions before implementation.
 
-### Phase 4 — Commercial completion and delivery handoff
+### Phase 5 — Commercial completion and delivery handoff
 
 Represent the remaining commercial milestones without creating duplicate
 financial or delivery systems.
@@ -188,7 +209,7 @@ Stripe webhooks should remain deferred until manual operation demonstrates
 that synchronization will save enough effort to justify signature validation,
 idempotency, and reconciliation.
 
-### Phase 5 — One bounded, human-gated AI drafting workflow
+### Phase 6 — One bounded, human-gated AI drafting workflow
 
 Add AI only after the corresponding human workflow produces enough evidence to
 evaluate it. Proposal drafting is the leading candidate; client-message
@@ -213,13 +234,18 @@ content, change membership, record payment state, or expand their own grants.
 These tracks support feature delivery but should not silently expand a feature
 slice.
 
-### Inquiry qualification and organization provisioning
+### Tenant-aware product foundation
 
-Before using the portal for a real prospect flow, connect an inquiry to a
-staff-only prequalification engagement, qualification decision, organization,
-and invitation. Public submission can remain owned by the consulting site, but
-the handoff must be authenticated, idempotent, and preserve the original
-inquiry history.
+Apply the
+[multi-tenant platform architecture](./multi-tenant-platform-architecture.md)
+incrementally across product phases: keep tenant context explicit, prefer
+versioned configuration to practice-specific conditionals, and preserve
+provider and workflow extension boundaries. Do not delay single-practice
+validation to build speculative SaaS infrastructure.
+
+Adding an explicit operating-tenant model, onboarding a second tenant, shared
+SaaS commercialization, dedicated deployments, and self-hosting each require
+their own evidence gate and approval.
 
 ### Read state and notifications
 

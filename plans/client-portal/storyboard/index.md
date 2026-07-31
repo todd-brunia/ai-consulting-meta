@@ -13,14 +13,17 @@ and gallery show the same planned screens.
 ## Story sequence
 
 1. Roadmap overview and evidence gates.
-2. Implemented foundation: authenticated invitation entry.
-3. Implemented foundation: tenant-scoped engagement workspace.
-4. Phase 1: client-visible conversation and activity timeline.
-5. Phase 2: immutable proposal publication and client review.
-6. Phase 3: agreement approval and external signing-provider handoff.
-7. Phase 4: deposit observation and Slack delivery handoff.
-8. Phase 5: one private, human-gated AI drafting workflow.
-9. Recommendation to plan Phase 1 as the next bounded feature.
+2. Phase 1: public inquiry and neutral receipt confirmation.
+3. Phase 1: AI-prepared consultant review and human qualification.
+4. Phase 1: workspace preparation and deliberate invitation.
+5. Implemented foundation: authenticated invitation entry.
+6. Implemented foundation: tenant-scoped engagement workspace.
+7. Phase 2: client-visible conversation and activity timeline.
+8. Phase 3: immutable proposal publication and client review.
+9. Phase 4: agreement approval and external signing-provider handoff.
+10. Phase 5: deposit observation and Slack delivery handoff.
+11. Phase 6: one private, human-gated AI drafting workflow.
+12. Recommendation to plan Phase 1 as the next bounded feature.
 
 Every scene names its roadmap phase and explains the dependency, boundary, or
 evidence gate that controls advancement to the next phase.

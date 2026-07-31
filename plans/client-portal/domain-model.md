@@ -115,12 +115,17 @@ design; accepting an invitation activates the corresponding membership.
 `Inquiry` is untrusted information submitted by an unauthenticated prospective
 client through the public consulting site. It preserves the structured form
 fields, submitter contact snapshot, receipt time, source, idempotency key, and
-qualification outcome. It does not grant portal access.
+qualification outcome. It does not grant portal access. Its detailed states,
+transition rules, consultant review experience, and notifications are defined
+in the [inquiry onboarding workflow](./inquiry-onboarding-workflow.md).
 
-A public submission creates an inquiry and a staff-only prequalification
-`Engagement` atomically. Todd may mark the inquiry as qualified, declined, or
-spam. Qualification creates or links an organization and permits invitations
-without losing the original inquiry history.
+A public submission creates only the durable inquiry and the staff-owned
+review context needed to assess it. It never creates an account, organization,
+membership, or invitation. Todd may mark the inquiry as qualified, declined,
+or spam. After qualification, a separate, deliberate provisioning action
+creates or links an organization, creates the prequalification engagement and
+pending membership, and preserves the original inquiry history. Invitation
+sending remains another explicit consultant action.
 
 ### Engagement
 
@@ -136,9 +141,9 @@ Declined and spam inquiries end before negotiation. The normal commercial path
 is flexible: Todd may publish multiple proposals, skip a proposal when it is
 unnecessary, or withdraw an obsolete document.
 
-Before qualification, an engagement has no client organization and is visible
-only to staff. Once linked to an organization, active members receive access
-through that organization boundary.
+Before qualification and provisioning, the inquiry review context is visible
+only to staff. Once its engagement is created and linked to an organization,
+only active members receive access through that organization boundary.
 
 ### Proposal and agreement
 
