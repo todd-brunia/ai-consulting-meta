@@ -90,11 +90,15 @@ describes how the internal label-driven Codex workflow could evolve into a
 versioned, client-owned consulting accelerator without turning this planning
 repository into its implementation or distribution repository.
 
-The proposed
+The approved long-term
 [goal-to-deployment pipeline](./plans/governed-codex-automation/goal-to-deployment-pipeline.md)
 defines a separate evolution from high-level business goals through epics,
 issues, plans, builds, and pull requests while keeping GitHub authoritative and
-human approval at milestone checkpoints.
+governed approval at milestone checkpoints. Its approved first implementation
+slice is the
+[AI sprint delivery orchestrator plan](./plans/governed-codex-automation/sprint-delivery-orchestrator-implementation-plan.md),
+which defines the Fargate, LangGraph, Aurora PostgreSQL, GitHub webhook, secured
+API, issue scheduling, and automated pull request review pilot.
 
 ## Reuse
 

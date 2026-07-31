@@ -2,7 +2,8 @@
 
 ## Status
 
-**Proposed long-term direction — not approved for implementation.**
+**Approved long-term direction — implementation begins with a bounded sprint
+delivery orchestrator.**
 
 This plan evolves the current GitHub- and Codex-based delivery workflow from
 issue-level automation toward governed decomposition of a high-level business
@@ -12,6 +13,12 @@ at milestone boundaries.
 The word *autonomous* describes automation between checkpoints. It does not
 mean unbounded authority, unattended production deployment, or removal of
 human accountability.
+
+The approved first implementation slice is the
+[governed AI sprint delivery orchestrator](./sprint-delivery-orchestrator-implementation-plan.md).
+That plan resolves the initial runtime, persistence, deployment, GitHub App,
+model-routing, and pilot decisions while leaving business-goal decomposition
+for a later workflow version.
 
 ## Current and target workflows
 
@@ -178,14 +185,17 @@ Required checkpoints initially are:
 1. **Goal approval:** confirm business outcome, constraints, risk, and budget.
 2. **Milestone/decomposition approval:** accept the epic and dependency shape
    before creating an actionable backlog.
-3. **Plan approval:** authorize a bounded issue for code changes.
+3. **Plan approval:** authorize a bounded issue for code changes. The first
+   implementation delegates ordinary low-risk plan approval through explicit
+   policy while retaining human approval for sensitive categories.
 4. **Pull-request review:** inspect changes and evidence before merge.
 5. **Release or deployment approval:** authorize production consequences.
 6. **Outcome review:** compare delivered evidence with the original goal and
    decide whether to continue, replan, or stop.
 
-Low-risk plan approvals may later be delegated through explicit policy.
-Security boundaries, secrets, permissions, destructive data changes, external
+The sprint-delivery implementation delegates ordinary low-risk plan approval
+through explicit, versioned policy. Security boundaries, authentication,
+secrets, permissions, infrastructure, destructive data changes, external
 communications, billing, production deployment, and policy changes retain
 human approval unless separately reviewed.
 
@@ -221,11 +231,13 @@ alone are not sufficient for concurrency control or exactly-once execution.
 
 ## Delivery phases
 
-### Phase 1 — Formalize the existing issue pipeline
+### Phase 1 — Implement the sprint delivery orchestrator
 
-Document explicit states, inputs, outputs, approval records, idempotency,
-reconciliation, failure recovery, and evaluation for the current
-issue-to-pull-request workflow.
+Implement the approved
+[sprint delivery orchestrator](./sprint-delivery-orchestrator-implementation-plan.md)
+for an explicit issue list, including durable states, policy decisions,
+idempotency, reconciliation, failure recovery, bounded concurrency, automated
+pull request review, and human merge.
 
 ### Phase 2 — Add epic decomposition
 
@@ -262,12 +274,8 @@ policy-based. Production deployment remains a separate decision.
 
 ## Open decisions
 
-- Durable state store and deployment boundary for the orchestrator.
-- Whether LangGraph is the first runtime after a minimal state-machine
-  prototype.
 - Exact GitHub representation for goals, epics, dependencies, and approvals.
-- Initial agent topology and model routing.
-- Policy language, identity model, and credential broker.
+- Policy language and identity model beyond the initial sprint workflow.
 - Evidence retention and privacy rules across public and private repositories.
 - The first synthetic or low-risk pilot goal.
 
