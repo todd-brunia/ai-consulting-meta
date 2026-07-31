@@ -46,6 +46,17 @@ maker.
 Use this before implementing public inquiry handoff, consultant review,
 prospect communication, provisioning, or invitation automation.
 
+### [Phase 1 implementation backlog](./phase-1-implementation-backlog.md)
+
+The issue-level implementation plan for the inquiry intake and
+consultant-approved onboarding workflow. It maps client portal issues #74
+through #84 into dependency waves, identifies parallel work, and separates the
+core human-controlled milestone from the later staff-triggered AI briefing.
+
+Use this after the feature roadmap and inquiry workflow when selecting or
+planning Phase 1 implementation work. GitHub remains authoritative for the
+current state of each issue.
+
 ### [Multi-tenant consulting platform architecture](./multi-tenant-platform-architecture.md)
 
 The proposed path from the single consulting practice to a configurable,
@@ -154,13 +165,15 @@ current direction because it supersedes the initial plan where they conflict.
 2. [Feature roadmap](./feature-roadmap.md)
 3. [Inquiry onboarding workflow](./inquiry-onboarding-workflow.md), when the
    change touches prospect intake or onboarding
-4. [Multi-tenant platform architecture](./multi-tenant-platform-architecture.md),
+4. [Phase 1 implementation backlog](./phase-1-implementation-backlog.md), when
+   selecting inquiry and onboarding implementation work
+5. [Multi-tenant platform architecture](./multi-tenant-platform-architecture.md),
    when the change affects tenant or product boundaries
-5. [Storyboard presentation](./storyboard/index.md)
-6. [Wireframe gallery](./wireframes/index.md)
-7. [Latest readiness checkpoint](./readiness-checkpoint-2026-07-22.md)
-8. [Domain model](./domain-model.md)
-9. [Authentication design](./authentication-design.md), when the change
+6. [Storyboard presentation](./storyboard/index.md)
+7. [Wireframe gallery](./wireframes/index.md)
+8. [Latest readiness checkpoint](./readiness-checkpoint-2026-07-22.md)
+9. [Domain model](./domain-model.md)
+10. [Authentication design](./authentication-design.md), when the change
    touches identity or access
 
 ### Understand the strategic evolution

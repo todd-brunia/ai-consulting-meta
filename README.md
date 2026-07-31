@@ -72,6 +72,10 @@ and readiness review.
 9. [Multi-tenant platform architecture](./plans/client-portal/multi-tenant-platform-architecture.md)
    — the proposed productization path from one consulting practice to
    configurable shared SaaS and later evidence-driven deployment options.
+10. [Phase 1 implementation backlog](./plans/client-portal/phase-1-implementation-backlog.md)
+    — the issue-level sequence, dependencies, parallel work, and scope
+    boundaries for inquiry intake, consultant-approved onboarding, and the
+    later advisory AI briefing.
 
 Preserving these documents is deliberate. A superseded proposal is evidence of
 how the decision evolved, not current implementation guidance.
