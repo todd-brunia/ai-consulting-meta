@@ -9,6 +9,20 @@ The purpose of publishing this history is to show the reasoning, uncertainty,
 tradeoffs, and human decisions behind the work rather than presenting only a
 polished final answer.
 
+## Published showcase
+
+The [client portal planning showcase](https://todd-brunia.github.io/ai-consulting-meta/)
+provides a browser-ready presentation of selected public artifacts. Its primary
+experiences are the interactive storyboard, filterable wireframe gallery, and
+rendered feature roadmap. All examples are fictional, low-fidelity planning
+material rather than a functioning client portal.
+
+The site deploys from `main` through the GitHub Pages workflow. Pull requests
+build and validate the site without deploying it. To inspect the exact public
+source set locally, run `bash scripts/prepare-pages.sh`; the ignored
+`_pages-source/` directory will contain only the configuration, layout, assets,
+landing page, and public planning documents sent to the Pages build.
+
 ## Repository organization
 
 Planning documents are grouped by initiative under `plans/`:

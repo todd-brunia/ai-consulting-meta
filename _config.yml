@@ -1,0 +1,24 @@
+title: AI Consulting Planning Showcase
+description: Public, fictional planning artifacts for the AI consulting client portal.
+url: https://todd-brunia.github.io
+baseurl: /ai-consulting-meta
+markdown: kramdown
+permalink: pretty
+
+plugins:
+  - jekyll-default-layout
+  - jekyll-optional-front-matter
+  - jekyll-relative-links
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+optional_front_matter:
+  remove_originals: true
+
+relative_links:
+  enabled: true
+  collections: true

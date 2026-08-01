@@ -18,6 +18,8 @@ secrets/
 .idea/
 .vscode/
 *.log
+_pages-source/
+_site/
 
 # Obsidian vault files
 .obsidian/
