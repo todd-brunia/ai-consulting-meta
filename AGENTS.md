@@ -6,6 +6,13 @@ Every folder under `plans/` that contains planning documents must maintain an
 `index.md` that gives a human reader a structured understanding of that
 folder's contents.
 
+Top-level initiative indexes at `plans/<initiative>/index.md` must also include
+Pages discovery front matter: a human-readable `title`, short `description`,
+`initiative: true`, numeric `initiative_order`, and `initiative_status`. Use
+the optional `initiative_highlights` list for presentation-oriented Pages URLs
+that should appear directly on the root showcase. This metadata lets the Pages
+landing page index future initiatives without hard-coding their folder names.
+
 When adding, removing, renaming, superseding, or materially repurposing a
 planning document, update the affected folder's `index.md` in the same change.
 The index must:

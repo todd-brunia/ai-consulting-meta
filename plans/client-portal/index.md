@@ -1,3 +1,17 @@
+---
+title: Client Portal
+description: An evidence-driven portal plan with a client journey storyboard, interactive wireframes, architecture, security design, and phased delivery roadmap.
+initiative: true
+initiative_order: 1
+initiative_status: Active planning and implementation
+initiative_highlights:
+  - title: Storyboard
+    url: /plans/client-portal/storyboard/client-portal-storyboard.html
+  - title: Wireframes
+    url: /plans/client-portal/wireframes/gallery.html
+  - title: Roadmap
+    url: /plans/client-portal/feature-roadmap.html
+---
 # Client Portal Planning Index
 
 ## Purpose
@@ -70,7 +84,7 @@ strategy.
 
 ## Visual exploration
 
-The public [client portal planning showcase](https://todd-brunia.github.io/ai-consulting-meta/)
+The public [client portal planning showcase](https://todd-brunia.github.io/ai-consulting-meta/plans/client-portal/)
 is the recommended entry point when presenting these artifacts in a browser.
 It links the storyboard, wireframe gallery, and rendered feature roadmap while
 keeping the planning-only status visible.

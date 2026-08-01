@@ -1,7 +1,7 @@
 ---
 layout: null
 title: AI Consulting Planning Showcase
-description: Explore the client portal storyboard, wireframes, and phased feature roadmap.
+description: Explore published plans, roadmaps, and visual artifacts for AI consulting initiatives.
 ---
 <!doctype html>
 <html lang="en">
@@ -13,54 +13,58 @@ description: Explore the client portal storyboard, wireframes, and phased featur
     <link rel="stylesheet" href="{{ '/assets/pages.css' | relative_url }}">
     <style>
       .showcase-shell { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; padding: clamp(3rem, 8vw, 7rem) 0; }
-      .showcase-hero { max-width: 850px; }
+      .showcase-hero { max-width: 900px; }
       .showcase-hero h1 { max-width: 780px; margin: 0; font-size: clamp(3rem, 9vw, 6.5rem); line-height: 0.94; letter-spacing: -0.06em; }
       .showcase-hero .eyebrow { color: var(--accent); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
       .showcase-hero .lede { max-width: 720px; margin: 2rem 0 0; color: var(--muted); font-size: clamp(1.15rem, 2.5vw, 1.45rem); }
-      .artifact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: clamp(3rem, 8vw, 6rem); }
-      .artifact-card { display: flex; min-height: 270px; padding: 1.6rem; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 16px; flex-direction: column; text-decoration: none; transition: transform 150ms ease, box-shadow 150ms ease; }
-      .artifact-card:hover, .artifact-card:focus-visible { color: var(--ink); box-shadow: 0 18px 50px rgb(35 37 35 / 10%); transform: translateY(-4px); }
-      .artifact-card .number { color: var(--accent); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.12em; }
-      .artifact-card h2 { margin: auto 0 0.55rem; font-size: 1.65rem; line-height: 1.1; }
-      .artifact-card p { margin: 0; color: var(--muted); }
+      .initiative-heading { margin: clamp(3rem, 8vw, 6rem) 0 1.2rem; font-size: 0.82rem; letter-spacing: 0.13em; text-transform: uppercase; }
+      .initiative-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+      .initiative-card { display: flex; min-height: 330px; padding: clamp(1.5rem, 4vw, 2rem); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 16px; flex-direction: column; }
+      .initiative-card__status { align-self: flex-start; padding: 0.3rem 0.55rem; color: var(--accent-dark); background: var(--notice); border-radius: 999px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
+      .initiative-card h2 { margin: 1.2rem 0 0.7rem; font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.05; }
+      .initiative-card p { margin: 0; color: var(--muted); }
+      .initiative-card__links { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: auto; padding-top: 2rem; }
+      .initiative-card__links a { padding: 0.5rem 0.7rem; color: var(--accent-dark); background: #eef3f0; border: 1px solid #d6e2db; border-radius: 7px; font-size: 0.88rem; font-weight: 750; text-decoration: none; }
+      .initiative-card__links a:first-child { color: white; background: var(--accent); border-color: var(--accent); }
+      .initiative-card__links a:hover, .initiative-card__links a:focus-visible { box-shadow: 0 5px 16px rgb(35 37 35 / 10%); transform: translateY(-1px); }
       .showcase-note { max-width: 760px; margin-top: 3rem; padding-left: 1rem; color: var(--muted); border-left: 3px solid var(--accent); }
-      @media (max-width: 760px) { .artifact-grid { grid-template-columns: 1fr; } .artifact-card { min-height: 210px; } }
+      @media (max-width: 760px) { .initiative-grid { grid-template-columns: 1fr; } .initiative-card { min-height: 290px; } }
     </style>
   </head>
   <body>
     <div class="planning-notice">Planning material — fictional examples, no production behavior</div>
     <main class="showcase-shell">
       <section class="showcase-hero">
-        <p class="eyebrow">Client portal · product narrative</p>
-        <h1>See the thinking before the build.</h1>
+        <p class="eyebrow">AI consulting · planning library</p>
+        <h1>Plans built to be examined.</h1>
         <p class="lede">
-          Explore a fictional client journey, the screens that support it, and
-          the evidence-driven roadmap behind an AI consulting portal.
+          Explore the reasoning, boundaries, roadmaps, and visual artifacts
+          behind active AI consulting initiatives.
         </p>
       </section>
 
-      <section class="artifact-grid" aria-label="Published planning artifacts">
-        <a class="artifact-card" href="{{ '/plans/client-portal/storyboard/client-portal-storyboard.html' | relative_url }}">
-          <span class="number">01 · PRESENT</span>
-          <h2>Storyboard</h2>
-          <p>Walk through the client journey as a keyboard-driven presentation.</p>
-        </a>
-        <a class="artifact-card" href="{{ '/plans/client-portal/wireframes/gallery.html' | relative_url }}">
-          <span class="number">02 · EXPLORE</span>
-          <h2>Wireframe gallery</h2>
-          <p>Filter low-fidelity screens by role, roadmap phase, and interface state.</p>
-        </a>
-        <a class="artifact-card" href="{{ '/plans/client-portal/feature-roadmap.html' | relative_url }}">
-          <span class="number">03 · UNDERSTAND</span>
-          <h2>Feature roadmap</h2>
-          <p>Read the phased strategy, boundaries, dependencies, and evidence gates.</p>
-        </a>
+      <h2 class="initiative-heading">Planning initiatives</h2>
+      {% assign initiatives = site.pages | where: "initiative", true | sort: "initiative_order" %}
+      <section class="initiative-grid" aria-label="Published planning initiatives">
+        {% for initiative in initiatives %}
+        <article class="initiative-card">
+          <span class="initiative-card__status">{{ initiative.initiative_status }}</span>
+          <h2>{{ initiative.title }}</h2>
+          <p>{{ initiative.description }}</p>
+          <nav class="initiative-card__links" aria-label="{{ initiative.title }} links">
+            <a href="{{ initiative.url | relative_url }}">View plan index</a>
+            {% for highlight in initiative.initiative_highlights %}
+            <a href="{{ highlight.url | relative_url }}">{{ highlight.title }}</a>
+            {% endfor %}
+          </nav>
+        </article>
+        {% endfor %}
       </section>
 
       <p class="showcase-note">
-        These are low-fidelity planning artifacts, not an implemented product.
-        They contain fictional data and intentionally omit working authentication,
-        persistence, provider connections, and production behavior.
+        These are public planning artifacts, not client deliverables or
+        implemented products. Examples are fictional or generalized and omit
+        credentials, private operations, and production behavior.
       </p>
     </main>
   </body>

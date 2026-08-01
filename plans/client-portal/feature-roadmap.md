@@ -20,9 +20,9 @@ applicable browser regression coverage.
 Visual companions:
 
 - Explore phase-specific screens in the
-  [interactive wireframe gallery](./wireframes/gallery.html).
+  [interactive wireframe gallery](https://todd-brunia.github.io/ai-consulting-meta/plans/client-portal/wireframes/gallery.html).
 - Present the sequence through the
-  [client-and-staff storyboard](./storyboard/client-portal-storyboard.html).
+  [client-and-staff storyboard](https://todd-brunia.github.io/ai-consulting-meta/plans/client-portal/storyboard/client-portal-storyboard.html).
 
 ## Roadmap principles
 
