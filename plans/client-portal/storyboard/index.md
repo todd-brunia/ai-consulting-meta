@@ -4,7 +4,7 @@
 
 **Interactive planning presentation — not an implemented product flow.**
 
-The [HTML storyboard presentation](./client-portal-storyboard.html) follows one
+The [HTML storyboard presentation](https://todd-brunia.github.io/ai-consulting-meta/plans/client-portal/storyboard/client-portal-storyboard.html) follows one
 fictional client engagement through the feature sequence defined in
 [`feature-roadmap.md`](../feature-roadmap.md). It reuses the shared wireframes
 from [`../wireframes/screens.js`](../wireframes/screens.js) so the presentation
@@ -40,7 +40,7 @@ Open `client-portal-storyboard.html` in a browser.
 
 ## Source files
 
-- [`client-portal-storyboard.html`](./client-portal-storyboard.html) contains
+- [`client-portal-storyboard.html`](https://todd-brunia.github.io/ai-consulting-meta/plans/client-portal/storyboard/client-portal-storyboard.html) contains
   slide narrative and phase mapping.
 - [`storyboard.css`](./storyboard.css) contains presentation and print layout.
 - [`deck.js`](./deck.js) provides navigation, progress, URL fragments, and

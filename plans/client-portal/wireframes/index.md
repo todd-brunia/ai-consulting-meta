@@ -4,7 +4,7 @@
 
 **Low-fidelity planning artifact — not an implemented interface.**
 
-The [interactive wireframe gallery](./gallery.html) is the visual source of
+The [interactive wireframe gallery](https://todd-brunia.github.io/ai-consulting-meta/plans/client-portal/wireframes/gallery.html) is the visual source of
 truth for the client portal feature roadmap. It uses fictional data and has no
 backend, authentication, persistence, provider connection, or production
 behavior.
@@ -43,11 +43,11 @@ Recommended review order:
 4. Use mobile mode to discuss information hierarchy, not finished responsive
    design.
 5. Follow the guided narrative in the
-   [storyboard presentation](../storyboard/client-portal-storyboard.html).
+   [storyboard presentation](https://todd-brunia.github.io/ai-consulting-meta/plans/client-portal/storyboard/client-portal-storyboard.html).
 
 ## Source files
 
-- [`gallery.html`](./gallery.html) provides gallery structure and filters.
+- [`gallery.html`](https://todd-brunia.github.io/ai-consulting-meta/plans/client-portal/wireframes/gallery.html) provides gallery structure and filters.
 - [`screens.js`](./screens.js) contains the shared wireframe registry used by
   both the gallery and storyboard.
 - [`styles.css`](./styles.css) contains the reusable low-fidelity visual

@@ -11,11 +11,11 @@ polished final answer.
 
 ## Published showcase
 
-The [client portal planning showcase](https://todd-brunia.github.io/ai-consulting-meta/)
-provides a browser-ready presentation of selected public artifacts. Its primary
-experiences are the interactive storyboard, filterable wireframe gallery, and
-rendered feature roadmap. All examples are fictional, low-fidelity planning
-material rather than a functioning client portal.
+The [AI consulting planning showcase](https://todd-brunia.github.io/ai-consulting-meta/)
+provides a browser-ready index of published initiatives. Each initiative links
+to its rendered planning index and, when available, presentation-oriented HTML
+such as the client portal storyboard and wireframe gallery. Examples are
+fictional or generalized planning material rather than functioning products.
 
 The site deploys from `main` through the GitHub Pages workflow. Pull requests
 build and validate the site without deploying it. To inspect the exact public

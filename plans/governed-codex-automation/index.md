@@ -1,3 +1,10 @@
+---
+title: Governed Codex Automation
+description: Product, architecture, security, and adoption plans for evolving a governed internal Codex workflow into a reusable consulting accelerator.
+initiative: true
+initiative_order: 2
+initiative_status: Published planning documents
+---
 # Governed Codex Automation Planning Index
 
 ## Purpose
