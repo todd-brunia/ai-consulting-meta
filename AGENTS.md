@@ -26,6 +26,36 @@ The index must:
 If an agent adds planning content to a folder that does not yet have an
 `index.md`, the agent must create the index as part of that change.
 
+## GitHub Pages publishing
+
+Markdown under `plans/` is the source of truth and is rendered to HTML by the
+Pages build. Do not create a duplicate HTML version of a Markdown planning
+document. Handwritten HTML is reserved for artifacts that require interactive
+or presentation behavior, such as a storyboard or wireframe gallery.
+
+Everything under `plans/` is copied into the public Pages artifact. Treat every
+file added there as permanently public and complete the repository's public-
+suitability review before committing it.
+
+Follow these link conventions:
+
+- Use relative Markdown links between planning documents so they work in both
+  GitHub and the rendered Pages site.
+- When Markdown links to client-shareable handwritten HTML, use its canonical
+  `https://todd-brunia.github.io/ai-consulting-meta/...` Pages URL.
+- In Liquid templates, pass repository-root paths through `relative_url` so
+  links retain the `/ai-consulting-meta` project-site base path.
+
+When adding a new initiative, interactive artifact, layout, or asset, preserve
+the curated source boundary in `scripts/prepare-pages.sh`. Ensure the generated
+site validator covers the resulting initiative and links. Pages pull requests
+must pass the `Publish planning showcase` build before merge; deployment occurs
+from `main` through the protected `github-pages` environment.
+
+Read the [Pages publishing guide](./docs/pages-publishing.md) before changing
+the site structure, Jekyll configuration, staging script, validation script, or
+deployment workflow.
+
 ## Repository README
 
 Keep the repository's top-level `README.md` synchronized with its published

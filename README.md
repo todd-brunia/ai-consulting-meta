@@ -23,6 +23,10 @@ source set locally, run `bash scripts/prepare-pages.sh`; the ignored
 `_pages-source/` directory will contain only the configuration, layout, assets,
 landing page, and public planning documents sent to the Pages build.
 
+See the [GitHub Pages publishing guide](./docs/pages-publishing.md) for the
+source-of-truth policy, initiative metadata, URL conventions, validation, and
+deployment process.
+
 ## Repository organization
 
 Planning documents are grouped by initiative under `plans/`:
