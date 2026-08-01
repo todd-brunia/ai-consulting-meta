@@ -30,26 +30,32 @@ merged to `main`:
   adds versioned GitHub/model provider ports, deterministic no-network stubs,
   inert GitHub mutation-intent capture, stub-only worker composition, and the
   local operating and recovery runbook.
+- [PR #15](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/15)
+  adds the non-deploying Terraform foundation: protected S3 state with native
+  lockfiles, pull-request-scoped GitHub OIDC planning, immutable scanned ECR,
+  two-AZ public/isolated networking without NAT, pinned validation tooling, and
+  guarded speculative-plan CI.
 
-The current validation baseline is 38 unit tests and 15 real-PostgreSQL
-integration tests, plus lint, type checking, production build, Docker build and
-runtime smoke test, dependency audit, secret scan, and Compose validation in
-CI. The local PostgreSQL service can be stopped without deleting its named
-volume.
+The current validation baseline is 42 unit/static-policy tests and 15
+real-PostgreSQL integration tests, plus lint, type checking, production build,
+Docker build and runtime smoke test, dependency audit, secret scan, Compose
+validation, and credential-free Terraform formatting and validation in CI.
+The local PostgreSQL service can be stopped without deleting its named volume.
 
 This checkpoint does **not** mean Phase 1 or Phase 2 is complete. The current
 code has no public HTTP/Lambda endpoint, GitHub App credentials or API calls,
 real model integration, LangGraph runtime or checkpoints, reconciliation loop,
-operator API, Terraform/AWS resources, or target-repository installation. The
+operator API, applied AWS resources, or target-repository installation. The
 provider composition rejects real-provider mode and cannot mutate another
-repository.
+repository. The Terraform foundation is configuration only: no AWS plan or
+apply has run, no AWS variables are configured, and no cloud cost was created.
 
-To continue Phase 1, the recommended next slice is Terraform and AWS bootstrap:
-remote state and locking, environment structure, GitHub Actions OIDC trust and
-least-privilege planning roles, ECR, and foundational networking. It should
-produce reviewed plans without deploying application compute or creating
-application credentials. HTTP/Lambda ingress, LangGraph workflow execution,
-and canonical GitHub refetch remain separate later slices.
+This is the current pause point. When implementation resumes, first decide
+whether to execute the separately authorized human bootstrap operation or
+continue defining unapplied Phase 1 infrastructure. Secrets contracts,
+observability, budgets, the Bruno smoke-test foundation, and application
+control-plane resources remain pending. HTTP/Lambda ingress, LangGraph
+workflow execution, and canonical GitHub refetch remain separate later slices.
 
 This plan defines the first implementation slice of the broader
 [autonomous goal-to-deployment delivery pipeline](./goal-to-deployment-pipeline.md).
@@ -399,9 +405,12 @@ Add narrowly scoped `repair` and `sync` dispatch stages to both repositories:
   distribution notice.
 - [x] Build local Docker Compose with PostgreSQL and stubbed GitHub/OpenAI
   adapters.
-- Implement Terraform bootstrap, AWS resources, OIDC CI/CD, migrations,
-  secrets contract, observability, and Bruno smoke tests. Application
-  migrations are implemented; the infrastructure portions remain pending.
+- **Partially complete:** Implement Terraform bootstrap, AWS resources, OIDC
+  CI/CD, migrations, secrets contract, observability, and Bruno smoke tests.
+  Application migrations and the unapplied state/OIDC/ECR/network foundation
+  are merged and validated. No infrastructure has been applied; secrets,
+  observability, budgets, application resources, protected deployment, and
+  Bruno smoke tests remain pending.
 
 ### Phase 2 — Dry-run orchestration
 
