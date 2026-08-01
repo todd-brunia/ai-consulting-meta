@@ -3,7 +3,6 @@ description: Public, fictional planning artifacts for the AI consulting client p
 url: https://todd-brunia.github.io
 baseurl: /ai-consulting-meta
 markdown: kramdown
-permalink: pretty
 
 plugins:
   - jekyll-default-layout
