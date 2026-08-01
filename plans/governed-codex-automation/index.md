@@ -42,13 +42,18 @@ checkpoints, and keeps LangGraph replaceable behind an orchestrator interface.
 
 ### [Governed AI sprint delivery orchestrator implementation plan](./sprint-delivery-orchestrator-implementation-plan.md)
 
-**Status: approved implementation direction.**
+**Status: approved implementation direction — implementation active.**
 
 This is the recommended implementation starting point. It defines the private
 `ai-delivery-orchestrator` repository, AWS Fargate and Aurora Serverless v2
 deployment, LangGraph runtime, GitHub App callbacks, secured Bruno API, explicit
 issue-list workflow, dependency-aware scheduling, risk-based plan approval,
 automated pull request review and repair, and human merge pilot.
+
+The [2026-08-01 implementation checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#implementation-checkpoint--2026-08-01)
+records the merged domain, PostgreSQL persistence, orchestration primitives,
+and secure webhook-intake slices, along with current validation evidence and
+explicitly pending work.
 
 ## Recommended reading path
 
@@ -73,10 +78,13 @@ Before proposing implementation, pay particular attention to:
 For client sharing, the first bounded planning outcome remains the dedicated
 implementation repository and versioned v1 workflow interface.
 
-For goal-to-deployment automation, begin with Phase 1 of the approved
-[sprint delivery orchestrator implementation plan](./sprint-delivery-orchestrator-implementation-plan.md):
-create the private implementation repository and establish its local runtime,
-security boundary, infrastructure, CI/CD, and operating documentation.
+For goal-to-deployment automation, continue the approved
+[sprint delivery orchestrator implementation plan](./sprint-delivery-orchestrator-implementation-plan.md)
+from its [latest checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#implementation-checkpoint--2026-08-01).
+The recommended next slice is a transport-neutral webhook application service
+and HTTP/Lambda ingress boundary. GitHub mutation authority, LangGraph,
+reconciliation, model integration, the operator API, and AWS provisioning
+remain later reviewed slices.
 
 ## Maintenance
 

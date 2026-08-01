@@ -5,6 +5,15 @@
 **Approved long-term direction — implementation begins with a bounded sprint
 delivery orchestrator.**
 
+As of 2026-08-01, implementation is underway in the private
+`todd-brunia/ai-delivery-orchestrator` repository. The versioned sprint domain
+and state machine, PostgreSQL workflow state and orchestration primitives, and
+secure durable GitHub webhook-intake core are merged. See the
+[implementation checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#implementation-checkpoint--2026-08-01)
+for exact pull requests, validation evidence, remaining boundaries, and the
+recommended next slice. Goal decomposition remains deferred until the bounded
+sprint workflow is proven.
+
 This plan evolves the current GitHub- and Codex-based delivery workflow from
 issue-level automation toward governed decomposition of a high-level business
 goal. GitHub remains the system of record and human approval remains required

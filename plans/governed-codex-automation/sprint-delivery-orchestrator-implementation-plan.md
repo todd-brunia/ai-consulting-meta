@@ -5,6 +5,47 @@
 **Approved implementation direction — execute incrementally with reviewed
 infrastructure and repository changes.**
 
+## Implementation checkpoint — 2026-08-01
+
+Implementation is active in the private
+[`todd-brunia/ai-delivery-orchestrator`](https://github.com/todd-brunia/ai-delivery-orchestrator)
+repository. The repository foundation and the following reviewed slices have
+merged to `main`:
+
+- [PR #5](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/5)
+  defines the provider-neutral, versioned `sprint-delivery/v1` domain,
+  state-machine, risk, dependency, concurrency, and repository-adapter
+  contracts.
+- [PR #7](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/7)
+  adds PostgreSQL migrations, immutable sprint identity, optimistic run
+  transitions, durable leases, and transactional outbox creation.
+- [PR #9](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/9)
+  adds work-item transitions, validated dependency and conflict persistence,
+  dependency-ready scheduling, and concurrent-safe recoverable outbox claims.
+- [PR #11](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/11)
+  adds exact-byte GitHub HMAC verification, strict `github-webhook/v1`
+  normalization, durable delivery deduplication, inbox claims, bounded retry,
+  stale-claim recovery, and dead-letter handling.
+
+The current validation baseline is 33 unit tests and 15 real-PostgreSQL
+integration tests, plus lint, type checking, production build, Docker build and
+runtime smoke test, dependency audit, secret scan, and Compose validation in
+CI. The local PostgreSQL service can be stopped without deleting its named
+volume.
+
+This checkpoint does **not** mean Phase 1 or Phase 2 is complete. The current
+code has no public HTTP/Lambda endpoint, GitHub App credentials or API calls,
+LangGraph runtime or checkpoints, model integration, reconciliation loop,
+operator API, Terraform/AWS resources, or target-repository installation. It
+cannot mutate another repository.
+
+The recommended next slice is the transport-neutral webhook application
+service and ingress adapter: accept verified deliveries, persist them through
+the inbox contract, return prompt duplicate-aware responses, and expose an
+HTTP/Lambda boundary without adding GitHub mutation authority. LangGraph
+workflow execution and canonical GitHub refetch should follow as separately
+reviewed slices.
+
 This plan defines the first implementation slice of the broader
 [autonomous goal-to-deployment delivery pipeline](./goal-to-deployment-pipeline.md).
 It creates a reusable AWS-hosted orchestrator that coordinates an explicit list
@@ -347,18 +388,27 @@ Add narrowly scoped `repair` and `sync` dispatch stages to both repositories:
 
 ### Phase 1 — Repository and platform foundation
 
-- Create the private implementation repository.
-- Add architecture decisions, threat model, security and contribution policy,
-  operating runbook, and private/proprietary distribution notice.
-- Build local Docker Compose with PostgreSQL and stubbed GitHub/OpenAI adapters.
+- [x] Create the private implementation repository.
+- **Partially complete:** Add architecture decisions, threat model, security
+  and contribution policy, operating runbook, and private/proprietary
+  distribution notice. The initial architecture, decision, threat, security,
+  contribution, and distribution documents exist; the operating runbook
+  remains pending.
+- **Partially complete:** Build local Docker Compose with PostgreSQL and stubbed GitHub/OpenAI
+  adapters. PostgreSQL and the worker container exist; explicit stub adapters
+  remain pending.
 - Implement Terraform bootstrap, AWS resources, OIDC CI/CD, migrations,
-  secrets contract, observability, and Bruno smoke tests.
+  secrets contract, observability, and Bruno smoke tests. Application
+  migrations are implemented; the infrastructure portions remain pending.
 
 ### Phase 2 — Dry-run orchestration
 
-- Implement webhook validation, durable inbox/outbox, reconciliation,
+- **Partially complete:** Implement webhook validation, durable inbox/outbox, reconciliation,
   LangGraph persistence, dependency analysis, feasibility review, and
-  scheduling.
+  scheduling. Webhook verification and normalization, durable inbox/outbox,
+  domain dependency validation, and persistence-level scheduling are merged;
+  ingress transport, reconciliation, LangGraph, model feasibility analysis,
+  and end-to-end scheduling remain pending.
 - Run read-only against both targets and report proposed labels, dispatches,
   reviews, and concurrency decisions without GitHub writes.
 
