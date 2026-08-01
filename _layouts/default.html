@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <title>{{ page.title | default: site.title | escape }}</title>
+    <link rel="stylesheet" href="{{ '/assets/pages.css' | relative_url }}">
+  </head>
+  <body>
+    <div class="planning-notice">
+      Planning material — fictional examples, no production behavior
+    </div>
+    <header class="site-header">
+      <a class="site-brand" href="{{ '/' | relative_url }}">AI Consulting Planning Showcase</a>
+      <nav aria-label="Site navigation">
+        <a href="{{ '/plans/client-portal/storyboard/client-portal-storyboard.html' | relative_url }}">Storyboard</a>
+        <a href="{{ '/plans/client-portal/wireframes/gallery.html' | relative_url }}">Wireframes</a>
+        <a href="{{ '/plans/client-portal/feature-roadmap.html' | relative_url }}">Roadmap</a>
+      </nav>
+    </header>
+    <main class="document-shell">
+      {{ content }}
+    </main>
+    <footer class="site-footer">
+      <p>Low-fidelity planning content for discussion. This is not a functioning client portal.</p>
+    </footer>
+  </body>
+</html>

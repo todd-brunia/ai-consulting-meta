@@ -70,6 +70,11 @@ strategy.
 
 ## Visual exploration
 
+The public [client portal planning showcase](https://todd-brunia.github.io/ai-consulting-meta/)
+is the recommended entry point when presenting these artifacts in a browser.
+It links the storyboard, wireframe gallery, and rendered feature roadmap while
+keeping the planning-only status visible.
+
 ### [Wireframe gallery](./wireframes/index.md)
 
 The low-fidelity visual source of truth for implemented foundations and every

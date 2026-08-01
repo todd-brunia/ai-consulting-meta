@@ -1,0 +1,77 @@
+name: Publish planning showcase
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/pages.yml"
+      - "_config.yml"
+      - "_layouts/**"
+      - "assets/**"
+      - "index.html"
+      - "plans/**"
+      - "scripts/prepare-pages.sh"
+      - "scripts/validate-pages.mjs"
+  pull_request:
+    paths:
+      - ".github/workflows/pages.yml"
+      - "_config.yml"
+      - "_layouts/**"
+      - "assets/**"
+      - "index.html"
+      - "plans/**"
+      - "scripts/prepare-pages.sh"
+      - "scripts/validate-pages.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    permissions:
+      contents: read
+      pages: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Prepare public source
+        run: bash scripts/prepare-pages.sh
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./_pages-source
+          destination: ./_site
+
+      - name: Validate generated site
+        run: node scripts/validate-pages.mjs _site
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
