@@ -55,7 +55,7 @@ jobs:
           destination: ./_site
 
       - name: Validate generated site
-        run: node scripts/validate-pages.mjs _site
+        run: node scripts/validate-pages.mjs _site _pages-source
 
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'
