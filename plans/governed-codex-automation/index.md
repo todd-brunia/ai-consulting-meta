@@ -52,8 +52,8 @@ automated pull request review and repair, and human merge pilot.
 
 The [2026-08-01 implementation checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#implementation-checkpoint--2026-08-01)
 records the merged domain, PostgreSQL persistence, orchestration primitives,
-and secure webhook-intake slices, along with current validation evidence and
-explicitly pending work.
+secure webhook-intake, provider-stub, and operating-runbook slices, along with
+current validation evidence and explicitly pending work.
 
 ## Recommended reading path
 
@@ -81,10 +81,12 @@ implementation repository and versioned v1 workflow interface.
 For goal-to-deployment automation, continue the approved
 [sprint delivery orchestrator implementation plan](./sprint-delivery-orchestrator-implementation-plan.md)
 from its [latest checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#implementation-checkpoint--2026-08-01).
-The recommended next slice is a transport-neutral webhook application service
-and HTTP/Lambda ingress boundary. GitHub mutation authority, LangGraph,
-reconciliation, model integration, the operator API, and AWS provisioning
-remain later reviewed slices.
+The recommended next Phase 1 slice is Terraform and AWS bootstrap: remote
+state, environment structure, GitHub Actions OIDC trust, least-privilege
+planning roles, ECR, and foundational networking. Application compute and
+credentials should remain undeployed until separately reviewed. GitHub
+mutation authority, ingress, LangGraph, reconciliation, model integration, and
+the operator API remain later slices.
 
 ## Maintenance
 

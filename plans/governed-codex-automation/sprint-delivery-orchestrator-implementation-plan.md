@@ -26,8 +26,12 @@ merged to `main`:
   adds exact-byte GitHub HMAC verification, strict `github-webhook/v1`
   normalization, durable delivery deduplication, inbox claims, bounded retry,
   stale-claim recovery, and dead-letter handling.
+- [PR #13](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/13)
+  adds versioned GitHub/model provider ports, deterministic no-network stubs,
+  inert GitHub mutation-intent capture, stub-only worker composition, and the
+  local operating and recovery runbook.
 
-The current validation baseline is 33 unit tests and 15 real-PostgreSQL
+The current validation baseline is 38 unit tests and 15 real-PostgreSQL
 integration tests, plus lint, type checking, production build, Docker build and
 runtime smoke test, dependency audit, secret scan, and Compose validation in
 CI. The local PostgreSQL service can be stopped without deleting its named
@@ -35,16 +39,17 @@ volume.
 
 This checkpoint does **not** mean Phase 1 or Phase 2 is complete. The current
 code has no public HTTP/Lambda endpoint, GitHub App credentials or API calls,
-LangGraph runtime or checkpoints, model integration, reconciliation loop,
-operator API, Terraform/AWS resources, or target-repository installation. It
-cannot mutate another repository.
+real model integration, LangGraph runtime or checkpoints, reconciliation loop,
+operator API, Terraform/AWS resources, or target-repository installation. The
+provider composition rejects real-provider mode and cannot mutate another
+repository.
 
-The recommended next slice is the transport-neutral webhook application
-service and ingress adapter: accept verified deliveries, persist them through
-the inbox contract, return prompt duplicate-aware responses, and expose an
-HTTP/Lambda boundary without adding GitHub mutation authority. LangGraph
-workflow execution and canonical GitHub refetch should follow as separately
-reviewed slices.
+To continue Phase 1, the recommended next slice is Terraform and AWS bootstrap:
+remote state and locking, environment structure, GitHub Actions OIDC trust and
+least-privilege planning roles, ECR, and foundational networking. It should
+produce reviewed plans without deploying application compute or creating
+application credentials. HTTP/Lambda ingress, LangGraph workflow execution,
+and canonical GitHub refetch remain separate later slices.
 
 This plan defines the first implementation slice of the broader
 [autonomous goal-to-deployment delivery pipeline](./goal-to-deployment-pipeline.md).
@@ -389,14 +394,11 @@ Add narrowly scoped `repair` and `sync` dispatch stages to both repositories:
 ### Phase 1 — Repository and platform foundation
 
 - [x] Create the private implementation repository.
-- **Partially complete:** Add architecture decisions, threat model, security
+- [x] Add architecture decisions, threat model, security
   and contribution policy, operating runbook, and private/proprietary
-  distribution notice. The initial architecture, decision, threat, security,
-  contribution, and distribution documents exist; the operating runbook
-  remains pending.
-- **Partially complete:** Build local Docker Compose with PostgreSQL and stubbed GitHub/OpenAI
-  adapters. PostgreSQL and the worker container exist; explicit stub adapters
-  remain pending.
+  distribution notice.
+- [x] Build local Docker Compose with PostgreSQL and stubbed GitHub/OpenAI
+  adapters.
 - Implement Terraform bootstrap, AWS resources, OIDC CI/CD, migrations,
   secrets contract, observability, and Bruno smoke tests. Application
   migrations are implemented; the infrastructure portions remain pending.

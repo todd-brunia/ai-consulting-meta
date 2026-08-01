@@ -8,7 +8,9 @@ delivery orchestrator.**
 As of 2026-08-01, implementation is underway in the private
 `todd-brunia/ai-delivery-orchestrator` repository. The versioned sprint domain
 and state machine, PostgreSQL workflow state and orchestration primitives, and
-secure durable GitHub webhook-intake core are merged. See the
+secure durable GitHub webhook-intake core are merged. Versioned provider ports,
+no-network local stubs, and an operating runbook now complete the local-runtime
+portion of the foundation. See the
 [implementation checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#implementation-checkpoint--2026-08-01)
 for exact pull requests, validation evidence, remaining boundaries, and the
 recommended next slice. Goal decomposition remains deferred until the bounded
