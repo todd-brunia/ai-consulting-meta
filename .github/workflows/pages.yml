@@ -35,7 +35,7 @@ jobs:
   build:
     permissions:
       contents: read
-      pages: write
+      pages: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -47,8 +47,6 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
