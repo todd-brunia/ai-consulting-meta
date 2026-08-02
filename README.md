@@ -116,7 +116,10 @@ governed approval at milestone checkpoints. Its approved first implementation
 slice is the
 [AI sprint delivery orchestrator plan](./plans/governed-codex-automation/sprint-delivery-orchestrator-implementation-plan.md),
 which defines the Fargate, LangGraph, Aurora PostgreSQL, GitHub webhook, secured
-API, issue scheduling, and automated pull request review pilot.
+API, issue scheduling, and automated pull request review pilot. Its companion
+[AWS operating cost estimate](./plans/governed-codex-automation/sprint-delivery-orchestrator-cost-estimate.md)
+provides weekly ranges, assumptions, cost controls, and pilot measurement
+checkpoints.
 
 ## Reuse
 
