@@ -63,6 +63,16 @@ secure webhook-intake, provider-stub, and operating-runbook slices, along with
 the unapplied Terraform state/OIDC/ECR/network foundation, current validation
 evidence, and explicitly pending work.
 
+### [Sprint delivery orchestrator cost estimate](./sprint-delivery-orchestrator-cost-estimate.md)
+
+**Status: planning estimate as of 2026-08-02 — validate before deployment.**
+
+This companion estimate translates the implementation architecture into
+weekly AWS operating ranges for idle, light, typical, and heavy sprint use. It
+documents workload assumptions, separates excluded OpenAI and GitHub costs,
+identifies Aurora wake time and CloudWatch logging as the main AWS cost risks,
+and defines measurement and budget controls for the pilot.
+
 ## Recommended reading path
 
 For packaging and client adoption, read the
@@ -70,7 +80,9 @@ For packaging and client adoption, read the
 delivery workflow, read the
 [goal-to-deployment pipeline](./goal-to-deployment-pipeline.md), then use the
 [sprint delivery orchestrator implementation plan](./sprint-delivery-orchestrator-implementation-plan.md)
-for the first build sequence.
+for the first build sequence and its
+[cost estimate](./sprint-delivery-orchestrator-cost-estimate.md) for the pilot
+budget assumptions.
 
 Before proposing implementation, pay particular attention to:
 
