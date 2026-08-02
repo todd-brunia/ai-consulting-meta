@@ -6,10 +6,9 @@
 measured pilot usage before approving a production budget.**
 
 This document estimates the weekly AWS operating cost of the architecture in
-the [sprint delivery orchestrator implementation
-plan](./sprint-delivery-orchestrator-implementation-plan.md). It assumes a
-single pilot deployment in `us-east-1`, prices in US dollars, and the planned
-scale-to-zero behavior.
+the [implementation plan](./sprint-delivery-orchestrator-implementation-plan.md).
+It assumes a single pilot deployment in `us-east-1`, prices in US dollars, and
+the planned scale-to-zero behavior.
 
 The estimate covers AWS infrastructure only. It excludes OpenAI API usage,
 GitHub plans and Actions overages, engineering labor, taxes, AWS Support, and
