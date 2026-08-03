@@ -36,8 +36,11 @@ the [client portal planning index](./plans/client-portal/index.md) for the
 portal's current direction, design references, checkpoints, and decision
 history. The
 [governed Codex automation planning index](./plans/governed-codex-automation/index.md)
-introduces the other currently published initiative and links to its current
-working plan.
+covers the governed delivery workflow and links to its current working plan.
+The
+[AI delivery economics planning index](./plans/ai-delivery-economics/index.md)
+defines the cross-repository measurement, cost, estimation, and evaluation
+direction for AI-assisted software delivery.
 
 Documents use clear, stable names that communicate their purpose or planning
 stage.
@@ -120,6 +123,22 @@ API, issue scheduling, and automated pull request review pilot. Its companion
 [AWS operating cost estimate](./plans/governed-codex-automation/sprint-delivery-orchestrator-cost-estimate.md)
 provides weekly ranges, assumptions, cost controls, and pilot measurement
 checkpoints.
+
+## AI delivery economics
+
+The
+[AI delivery economics planning index](./plans/ai-delivery-economics/index.md)
+introduces a separate initiative for measuring model consumption and total
+delivery economics from individual attempts through issues, features, epics,
+and products. Its current
+[measurement and estimation framework](./plans/ai-delivery-economics/measurement-and-estimation-framework.md)
+defines immutable event principles, derived cost and rollup boundaries, a
+bounded client-portal pilot, privacy constraints, and a phased path toward
+centralized analysis and calibrated forecasting.
+
+This repository publishes only the generalized framework. Real token usage,
+human-effort observations, billing evidence, client identifiers, and private
+repository data remain outside the public Pages artifact.
 
 ## Reuse
 
