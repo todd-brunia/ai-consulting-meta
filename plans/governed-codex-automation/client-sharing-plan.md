@@ -10,15 +10,19 @@ terms.
 
 ## Product direction
 
-Offer a versioned automation kit that clients install in repositories they own.
-The kit should preserve the demonstrated human-gated workflow while allowing
-each client to retain control of credentials, policies, repositories, generated
-code, and final publication decisions.
+Offer a versioned, self-managed release of `ai-delivery-orchestrator` that a
+client can fork into its own GitHub organization and provision in an AWS
+account it controls. The release should preserve the demonstrated human-gated
+workflow while allowing each client to retain control of infrastructure,
+Terraform state, credentials, policies, repositories, generated code, logs,
+backups, costs, and final publication decisions.
 
 Do not distribute the implementation directly from `ai-consulting-meta`. This
-repository should remain the public planning record. Create a dedicated public
-implementation repository when the design is approved, with its own license,
-security policy, releases, documentation, and support boundaries.
+repository should remain the public planning record. Prepare the dedicated
+`ai-delivery-orchestrator` implementation repository for client distribution
+only after selecting a license and publishing appropriate security, release,
+installation, upgrade, and support documentation. Its current private and
+proprietary terms do not grant clients permission to fork or reuse it.
 
 The initial offering is a self-managed accelerator supported through consulting
 engagements. A hosted control plane or consultancy-operated GitHub App is a
@@ -27,32 +31,29 @@ privacy terms, operations, and incident-response capability.
 
 ## Client-ready architecture
 
-### Shared, versioned core
+### Forkable, versioned orchestrator
 
-- Publish a reusable GitHub Actions workflow covering planning, revision,
-  implementation, split publishing, and sanitized failure reporting.
-- Package the generic state machine, approval fingerprinting, schema and patch
-  validation, label transitions, idempotency, and publisher logic as centrally
-  tested actions or modules.
-- Pin reusable workflows and actions to immutable commit SHAs. Publish named
-  releases for discovery, then deliver upgrades as reviewable pull requests
-  that change the pinned SHA.
+- Publish reviewed releases of the TypeScript service, container image build,
+  database migrations, Terraform modules, protected deployment workflows, and
+  operating documentation from the dedicated implementation repository.
+- Make a client fork the deployment source of truth. It must be possible to
+  build images and provision the complete supported stack without access to a
+  consultancy-owned repository, AWS account, Terraform backend, GitHub App, or
+  secret store.
+- Tag immutable releases and deliver upstream upgrades to client forks as
+  reviewable pull requests. Document how clients preserve local configuration
+  while accepting security fixes and schema or infrastructure migrations.
 - Keep the stable interface small and versioned. Breaking configuration,
-  security, label-state, or output changes require a new major version and a
-  migration guide.
+  infrastructure, state, security, workflow, or API changes require a new
+  major version and a migration guide.
 
-GitHub supports reusable workflows across repositories and identifies commit
-SHAs as the safest reference for stability and security. Public workflows can
-be called by public or private repositories when the client's Actions policy
-allows them. See [Reuse workflows](https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows)
-and [Reusing workflow configurations](https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations).
+### Client-owned infrastructure, adapter, and policy
 
-### Client-owned adapter and policy
+Each client deployment retains:
 
-Each client repository retains:
-
-- A thin workflow containing issue-label and manual-dispatch triggers plus the
-  call to the pinned reusable workflow.
+- Its own fork, protected deployment environment, AWS account or approved
+  account boundary, remote Terraform state, OIDC roles, GitHub App, secrets,
+  logs, backups, budgets, and notification endpoints.
 - A declarative configuration file selecting supported stages, prompt and
   schema paths, validation commands or supported validation profiles, label
   names, and optional accessibility or change-journal requirements.
@@ -62,9 +63,29 @@ Each client repository retains:
   secrets; never use blanket secret inheritance.
 - An explicit actor allowlist and automation enable switch.
 
-Provide a configuration schema, validator, starter template, upgrade checker,
-and onboarding checklist. Reject unknown fields and unsafe combinations so a
-configuration mistake fails closed rather than silently weakening policy.
+Provide versioned Terraform variables and outputs, a configuration schema,
+validator, example environment, upgrade checker, and onboarding checklist.
+Reject unknown fields and unsafe combinations so a configuration mistake fails
+closed rather than silently weakening policy.
+
+### Self-provisioning contract
+
+The supported client path must document and test:
+
+1. Prerequisite GitHub, AWS, DNS, Terraform, and operator permissions.
+2. Human bootstrap of protected remote state and repository-bound GitHub OIDC
+   trust, including safe adoption of an existing account-level OIDC provider.
+3. Creation and installation of a client-owned GitHub App with the minimum
+   target-repository permissions and allowlist.
+4. Protected Terraform plan/apply, database migration, image rollout, and
+   smoke-test workflows using short-lived credentials.
+5. Budget configuration, monitoring, backup/restore, upgrades, rollback,
+   break-glass disablement, and separately approved teardown.
+
+Acceptance requires a clean synthetic fork and fresh test account. A second
+authorized operator must be able to provision and recover the deployment using
+only published documentation. Examples must use placeholders and fictional
+fixtures, with no account-specific consultancy dependency.
 
 ### Security and tenant boundary
 
@@ -128,20 +149,22 @@ runner types, languages, and validation profiles before quoting an engagement.
 
 ### Phase 1 — Extract and stabilize
 
-- Create the dedicated implementation repository and extract the generic
-  workflow from the internal site repository.
-- Define the v1 workflow inputs, named secrets, outputs, configuration schema,
-  and supported Node validation profile.
+- Stabilize the dedicated implementation repository and complete the internal
+  orchestrator pilot.
+- Define the v1 application, Terraform, OIDC, state, secrets, API, and target-
+  repository configuration contracts.
 - Preserve the separation between untrusted generation and trusted publishing.
 - Port the complete state-machine, schema, publisher, workflow-state, and
   failure-path test suite.
 
 ### Phase 2 — Prove portability
 
-- Adopt the pinned workflow in the original site as the reference consumer.
-- Add a second synthetic sample repository with different prompts and
-  validation commands to prove that behavior is configured rather than
-  hard-coded.
+- Complete licensing and client-distribution readiness, then create a clean
+  synthetic fork in a fresh AWS test account.
+- Have a second operator follow the published bootstrap and deployment guide,
+  with no access to consultancy-owned infrastructure or undocumented steps.
+- Add two synthetic target repositories with different policies and validation
+  commands to prove that behavior is configured rather than hard-coded.
 - Exercise planning, revision, implementation, split, replay, stale approval,
   duplicate PR, failed validation, and publisher failure paths without creating
   real client issues during automated tests.
@@ -173,21 +196,20 @@ runner types, languages, and validation profiles before quoting an engagement.
 
 ## Interfaces and compatibility
 
-The v1 reusable workflow should accept explicit inputs for issue number,
-requested stage, configuration path, enable state, allowed actors, and GitHub
-App ID. It should accept only the named OpenAI API key and GitHub App private
-key as secrets.
+The v1 public contracts include Terraform inputs and outputs, backend state
+layout, GitHub OIDC trust conditions, Secrets Manager names and formats,
+database migrations, operator API schemas, target-repository configuration,
+and the label-state contract. The implementation must document defaults,
+required labels, supported events, permissions, retry semantics, migration
+behavior, and which values may differ between environments.
 
-Its outputs should be limited to the selected action, stage, issue number,
-approval fingerprint, sanitized status, and pull-request URL when one is
-created. Secrets, source code, prompts, model traces, and raw failure output
-must never be workflow outputs or issue comments.
-
-The configuration schema and label-state contract are public interfaces. The
-v1 implementation must document defaults, required labels, supported events,
-permissions, output markers, retry semantics, and migration behavior. Patch
-releases may fix bugs without weakening gates; changes that alter authority or
-state transitions require explicit release notes and client reacceptance.
+Provisioning outputs must contain only the identifiers operators need for
+subsequent configuration and verification. Secrets, source code, prompts,
+model traces, raw failure output, and temporary credentials must never become
+Terraform outputs, workflow artifacts, or issue comments. Patch releases may
+fix bugs without weakening gates; changes that alter authority, infrastructure
+state, schemas, or workflow transitions require explicit release notes and
+client reacceptance.
 
 ## Test and acceptance plan
 
@@ -215,15 +237,18 @@ state transitions require explicit release notes and client reacceptance.
 
 - All workflow stages are candidates for the shared core, but clients may
   enable a subset and should begin with the least-privileged useful subset.
-- The implementation will be distributed from a dedicated public repository;
-  this meta repository stores planning history only.
+- The implementation will be distributed from its dedicated repository under
+  an explicit license that permits client forks; this meta repository stores
+  planning history only.
+- Every client deployment owns and can revoke access to its infrastructure,
+  Terraform state, deployment identity, GitHub App, secrets, logs, and backups.
 - Clients retain per-repository or organization-owned secrets and credentials.
-- Immutable SHA pins with reviewable update PRs are the default versioning
-  model; movable major tags are not trusted production references.
+- Immutable upstream release commits with reviewable update pull requests are
+  the default versioning model; movable major tags are not trusted production
+  references.
 - Node repositories are the initial supported profile. Other ecosystems require
   separately tested profiles and compatibility commitments.
 - The first offering is self-managed software plus consulting services, not a
   multi-tenant SaaS, compliance product, or autonomous merge/deployment system.
 - Human approval of scope, pull-request review, merge, release, and production
   deployment remain outside the automation.
-

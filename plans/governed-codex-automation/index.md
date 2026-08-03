@@ -22,12 +22,14 @@ client installation, credential sharing, or operation of a hosted service.
 
 **Status: working direction — not approved for implementation.**
 
-This plan proposes a versioned automation kit installed in repositories owned
-by clients, with:
+This plan proposes a versioned, self-managed orchestrator release that clients
+can fork and provision in AWS accounts they control, with:
 
-- A shared, centrally tested workflow core.
-- Thin client-owned adapters and declarative policy.
-- Client-controlled credentials and repository governance.
+- A centrally tested but client-forkable application and Terraform stack.
+- Client-owned infrastructure, state, deployment identity, GitHub App,
+  credentials, adapters, and declarative policy.
+- A documented bootstrap, protected plan/apply, verification, upgrade,
+  recovery, and teardown path tested from a clean synthetic fork.
 - Separation between untrusted generation and trusted publishing.
 - Immutable release pins and reviewable upgrades.
 - A consulting-led adoption path beginning with synthetic dry runs and a
@@ -95,8 +97,12 @@ Before proposing implementation, pay particular attention to:
 
 ## Current next step
 
-For client sharing, the first bounded planning outcome remains the dedicated
-implementation repository and versioned v1 workflow interface.
+For client sharing, complete the internal pilot and the dedicated repository's
+licensing and distribution readiness, then prove self-provisioning from a clean
+synthetic fork in a fresh AWS test account. A second operator must be able to
+follow the published bootstrap, deployment, verification, upgrade, recovery,
+and teardown guidance without consultancy-owned infrastructure or undocumented
+intervention.
 
 For goal-to-deployment automation, continue the approved
 [sprint delivery orchestrator implementation plan](./sprint-delivery-orchestrator-implementation-plan.md)
