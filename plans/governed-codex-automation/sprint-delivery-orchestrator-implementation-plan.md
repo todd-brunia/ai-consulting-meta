@@ -67,6 +67,14 @@ The first installations are the private `ai-consulting-client-portal`
 repository as the primary pilot and the public `ai-consulting-site` repository
 as the second target.
 
+After the internal pilot proves the operating model, the implementation must
+also support a client-owned deployment path. A client should be able to fork a
+client-distributable release of `ai-delivery-orchestrator` into its own GitHub
+organization and use the fork's Terraform and documented workflows to
+provision an isolated deployment in an AWS account it controls. This is a
+portability and productization requirement, not authorization to publish the
+current private/proprietary repository or provision client infrastructure.
+
 ## Initial outcome
 
 Create a private implementation repository named `ai-delivery-orchestrator`
@@ -192,6 +200,47 @@ CI/CD behavior:
 - A merge to `main` publishes an immutable commit-SHA image to ECR.
 - A protected GitHub `pilot` environment requires human approval before
   Terraform apply, database migrations, ECS rollout, and smoke tests.
+
+### Client-owned fork and provisioning
+
+The post-pilot distribution model is one fork per client organization and one
+or more client-owned AWS environments. The supported path must not depend on
+consultancy-owned AWS accounts, Terraform state, GitHub Apps, deployment roles,
+secrets, or a centrally operated control plane.
+
+Before describing the repository as client-self-provisionable:
+
+- Select a license and publish a client-distributable release with a security
+  policy, support boundary, release notes, and upgrade policy. The current
+  private/proprietary distribution terms do not grant clients a right to fork
+  or reuse the implementation.
+- Parameterize repository owner/name, AWS account, region, environment name,
+  state key, resource-name prefix, GitHub App identity, target-repository
+  allowlist, budgets, and notification endpoints. Checked-in defaults and
+  examples must contain no Todd Brunia account or repository dependency.
+- Provide a bootstrap path that creates or safely adopts the client's remote
+  Terraform state and GitHub Actions OIDC trust. Trust policies must bind to
+  the client's fork, protected environments, and intended branches; shared
+  account-level GitHub OIDC providers must be imported rather than replaced.
+- Provide reviewed plan and protected apply workflows that use short-lived
+  client-owned credentials. Bootstrap remains an explicit human operation;
+  normal deployment must not require long-lived AWS keys or consultancy
+  access.
+- Document prerequisites, estimated costs, GitHub App creation and
+  installation, secret entry, first deployment, database migration, smoke
+  testing, backup/restore, upgrades, rollback, break-glass disablement, and
+  teardown. Destruction must remain separately approved and protect retained
+  state, backups, and final database snapshots.
+- Validate the path from a clean synthetic fork in a fresh test account. The
+  acceptance test must prove that another authorized operator can provision,
+  operate, upgrade, and recover the deployment using only published
+  documentation, without undocumented consultancy intervention.
+
+Client forks may carry local policy and target-repository configuration, but
+clients should receive upstream security and compatibility updates as
+reviewable pull requests pinned to immutable releases. A future managed
+multi-client service remains a separate product requiring its own tenant,
+privacy, threat, support, and incident-response design.
 
 ## Implementation repository design
 
@@ -439,7 +488,22 @@ Add narrowly scoped `repair` and `sync` dispatch stages to both repositories:
 - Prove cross-repository concurrency and per-repository merge serialization.
 - Record evidence and implementation links in this planning repository.
 
-### Phase 5 — Automated merge follow-up
+### Phase 5 — Client-owned deployment portability
+
+- Complete licensing and public/client-distribution readiness before granting
+  any client the right to fork the implementation.
+- Remove account-specific assumptions and define versioned Terraform inputs,
+  outputs, state layout, OIDC trust, and secret contracts.
+- Add client-facing bootstrap, provisioning, verification, upgrade, recovery,
+  and teardown documentation plus protected plan/apply workflows.
+- Prove the instructions from a clean synthetic fork in a fresh AWS test
+  account, including a second operator following the documentation without
+  repository-author assistance.
+- Pilot the forked deployment with one client only after its technical owner
+  approves the account boundary, expected costs, permissions, support model,
+  and acceptance/rollback criteria.
+
+### Phase 6 — Automated merge follow-up
 
 Scaffold a versioned `MergePolicy`, disabled `automatic` mode, separate merge
 executor interface, repository allowlist, exact-head policy decision, and kill
@@ -497,6 +561,13 @@ Pilot acceptance requires:
 
 - The implementation repository is private and contains no credentials or
   account-specific secret values.
+- Client forking is a post-pilot distribution target. It requires an explicit
+  license and a client-distributable release; the current private/proprietary
+  repository must not be represented as reusable software.
+- Each client deployment owns its AWS account boundary, Terraform state,
+  GitHub App, OIDC roles, secrets, budgets, logs, backups, and operating
+  decisions. Consultancy access is optional, explicit, least-privileged, and
+  revocable by the client.
 - AWS region is `us-east-1`; AWS credentials must be reauthenticated before
   provisioning.
 - The target repositories' current build workflows and publisher Apps remain
