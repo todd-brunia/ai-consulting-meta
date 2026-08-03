@@ -496,9 +496,19 @@ Add narrowly scoped `repair` and `sync` dispatch stages to both repositories:
   outputs, state layout, OIDC trust, and secret contracts.
 - Add client-facing bootstrap, provisioning, verification, upgrade, recovery,
   and teardown documentation plus protected plan/apply workflows.
+- Provide the client-owned `node-v1` repository template, idempotent
+  `repo:provision` command, non-mutating `--check` mode, adapter registration,
+  GitHub Team/Enterprise ruleset path, and GitHub Free fallback defined by the
+  [client repository provisioning plan](./client-repository-provisioning.md).
+- Validate clean repository creation, repeated no-op provisioning, drift
+  detection and repair, missing permissions and App access, and fail-closed
+  handling of unenforceable mandatory controls.
 - Prove the instructions from a clean synthetic fork in a fresh AWS test
   account, including a second operator following the documentation without
   repository-author assistance.
+- Require that second operator to create and provision a synthetic target
+  repository, run a synthetic issue through a checked draft pull request, and
+  stop for human review without merge or deployment.
 - Pilot the forked deployment with one client only after its technical owner
   approves the account boundary, expected costs, permissions, support model,
   and acceptance/rollback criteria.

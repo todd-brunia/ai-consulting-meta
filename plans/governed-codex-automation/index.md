@@ -39,6 +39,16 @@ The plan deliberately excludes distributing implementation from this meta
 repository and defers any consultancy-operated, multi-client control plane
 until it has a separate threat model and operating design.
 
+### [Client repository provisioning plan](./client-repository-provisioning.md)
+
+**Status: working direction — not approved for implementation.**
+
+This plan defines the repository-level adoption path after a client provisions
+its orchestrator: a client-owned Node.js and TypeScript template, an idempotent
+provisioner with non-mutating drift checks, strict adapter registration,
+GitHub-plan-aware governance, and a synthetic readiness test that stops at
+human review.
+
 ### [Autonomous goal-to-deployment delivery pipeline](./goal-to-deployment-pipeline.md)
 
 **Status: approved long-term direction.**
@@ -78,8 +88,9 @@ and defines measurement and budget controls for the pilot.
 ## Recommended reading path
 
 For packaging and client adoption, read the
-[client-sharing plan](./client-sharing-plan.md). For evolution of the internal
-delivery workflow, read the
+[client-sharing plan](./client-sharing-plan.md), followed by the
+[client repository provisioning plan](./client-repository-provisioning.md).
+For evolution of the internal delivery workflow, read the
 [goal-to-deployment pipeline](./goal-to-deployment-pipeline.md), then use the
 [sprint delivery orchestrator implementation plan](./sprint-delivery-orchestrator-implementation-plan.md)
 for the first build sequence and its
@@ -88,7 +99,7 @@ budget assumptions.
 
 Before proposing implementation, pay particular attention to:
 
-1. The client-owned adapter and credential model.
+1. The client-owned adapter, repository-provisioning, and credential model.
 2. The security boundary between generation, validation, and publishing.
 3. Distribution and legal-readiness requirements.
 4. The phased portability and client-pilot acceptance plan.
@@ -102,7 +113,10 @@ licensing and distribution readiness, then prove self-provisioning from a clean
 synthetic fork in a fresh AWS test account. A second operator must be able to
 follow the published bootstrap, deployment, verification, upgrade, recovery,
 and teardown guidance without consultancy-owned infrastructure or undocumented
-intervention.
+intervention. Then use the
+[client repository provisioning plan](./client-repository-provisioning.md) to
+prove clean `node-v1` target creation, idempotent configuration, non-mutating
+drift checks, and a synthetic draft-pull-request readiness path.
 
 For goal-to-deployment automation, continue the approved
 [sprint delivery orchestrator implementation plan](./sprint-delivery-orchestrator-implementation-plan.md)

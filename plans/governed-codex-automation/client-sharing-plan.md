@@ -68,6 +68,13 @@ validator, example environment, upgrade checker, and onboarding checklist.
 Reject unknown fields and unsafe combinations so a configuration mistake fails
 closed rather than silently weakening policy.
 
+Use the [client repository provisioning plan](./client-repository-provisioning.md)
+as the standard onboarding path for new target repositories. Each client
+maintains a credential-free `node-v1` template and uses an idempotent
+provisioner from its orchestrator fork to reconcile labels, GitHub governance,
+App selection, adapter registration, and compatibility. Do not fork the client
+portal or duplicate its monolithic workflow for each application.
+
 ### Self-provisioning contract
 
 The supported client path must document and test:
@@ -165,6 +172,10 @@ runner types, languages, and validation profiles before quoting an engagement.
   with no access to consultancy-owned infrastructure or undocumented steps.
 - Add two synthetic target repositories with different policies and validation
   commands to prove that behavior is configured rather than hard-coded.
+- Create one target from the client-owned `node-v1` template and prove both
+  provisioning and non-mutating drift checks from the orchestrator fork.
+- Have a second operator reach a passing repository-readiness result using only
+  the published template, provisioner, and operating guidance.
 - Exercise planning, revision, implementation, split, replay, stale approval,
   duplicate PR, failed validation, and publisher failure paths without creating
   real client issues during automated tests.
@@ -232,6 +243,9 @@ client reacceptance.
 - Client acceptance requires a successful synthetic dry-run, documented
   permissions, passing repository validation, demonstrated disable/rollback,
   maintainer training, and explicit human approval before enabling write stages.
+- Repository-onboarding acceptance also requires a clean template creation,
+  idempotent provisioning, a no-op repeat, a passing non-mutating drift check,
+  and a synthetic draft pull request that stops for human review.
 
 ## Assumptions and explicit boundaries
 
