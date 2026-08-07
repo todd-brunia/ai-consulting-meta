@@ -67,7 +67,16 @@ This is the recommended implementation starting point. It defines the private
 `ai-delivery-orchestrator` repository, AWS Fargate and Aurora Serverless v2
 deployment, LangGraph runtime, GitHub App callbacks, secured Bruno API, explicit
 issue-list workflow, dependency-aware scheduling, risk-based plan approval,
-automated pull request review and repair, and human merge pilot.
+automated pull request review and repair, and a frozen, human-authorized portal
+backlog run with guarded automatic merge.
+
+The [2026-08-07 MVP definition and backlog checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#mvp-definition-and-backlog-checkpoint--2026-08-07)
+supersedes the earlier human-merge pilot boundary. MVP is now an AWS-hosted,
+fully traced run through a frozen and human-authorized client-portal Phase 1
+manifest, with separated builder/reviewer/merger identities, enforced branch
+protection, independent automated review, bounded repair, and guarded squash
+auto-merge. Five linked GitHub milestones decompose the remaining work into
+epic trackers and independently planned child issues.
 
 The [2026-08-01 implementation checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#implementation-checkpoint--2026-08-01)
 records the merged domain, PostgreSQL persistence, orchestration primitives,
@@ -103,8 +112,9 @@ Before proposing implementation, pay particular attention to:
 2. The security boundary between generation, validation, and publishing.
 3. Distribution and legal-readiness requirements.
 4. The phased portability and client-pilot acceptance plan.
-5. The approved risk-based plan gate and the requirement that merge, release,
-   and deployment remain human-controlled in the first release.
+5. The immutable human authorization gate for the MVP manifest, separated
+   automatic-review/merge identities, and continued human control of release
+   and deployment.
 
 ## Current next step
 
@@ -120,13 +130,12 @@ drift checks, and a synthetic draft-pull-request readiness path.
 
 For goal-to-deployment automation, continue the approved
 [sprint delivery orchestrator implementation plan](./sprint-delivery-orchestrator-implementation-plan.md)
-from its [latest checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#implementation-checkpoint--2026-08-01).
-The current pause point follows the merged, unapplied Terraform foundation.
-When work resumes, first choose between a separately authorized human bootstrap
-operation and continued definition of unapplied Phase 1 infrastructure.
-Secrets, observability, budgets, Bruno smoke tests, application compute,
-GitHub mutation authority, ingress, LangGraph, reconciliation, model
-integration, and the operator API remain later reviewed slices.
+from its
+[latest MVP checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#mvp-definition-and-backlog-checkpoint--2026-08-07).
+Start with that definition
+and its linked M1-M5 GitHub hierarchy. Complete authority/repository safeguards,
+the AWS runtime, live orchestration, independent review/repair/merge, and
+readiness in sequence before freezing and authorizing the portal manifest.
 
 ## Maintenance
 
