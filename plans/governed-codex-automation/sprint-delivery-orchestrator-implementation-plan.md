@@ -5,6 +5,63 @@
 **Approved implementation direction — execute incrementally with reviewed
 infrastructure and repository changes.**
 
+## MVP definition and backlog checkpoint — 2026-08-07
+
+The minimum viable product is now a complete, AWS-hosted autonomous delivery
+run through one frozen and human-authorized manifest of the client portal's
+open Phase 1 issues. The operator first resolves every material decision,
+approves every final marked plan, and authorizes the exact issue identities,
+plan fingerprints, default-branch SHA, policy version, and `automatic` merge
+mode. After that checkpoint, the orchestrator may plan execution order,
+dispatch builds, review exact pull-request revisions, request at most two
+repairs, independently approve passing revisions, and enable squash auto-merge
+without a per-pull-request human gate.
+
+Automatic merge is enabled only after the client portal becomes public and
+protected `main` enforces pull requests, one independent approval, stale-review
+dismissal, resolved conversations, and the strict `CI Gate`. Build publishing,
+review approval, and merge enablement use three distinct least-privilege
+identities. Any plan, head, base, check, review, identity, policy, protection,
+or authorization drift fails closed. Independent work may continue after one
+branch blocks, but the MVP succeeds only when every manifest issue is merged
+and closed.
+
+The candidate manifest is portal issues #74-#80, #82-#83, and #105-#110.
+Closed split parents #81 and #84 are excluded. The actual manifest is frozen
+only after decisions on #76, #78, and #79 are resolved, the six split children
+have approved plans, and stale dependency references are normalized.
+
+The implementation sequence is maintained as matching GitHub milestones and
+epic/child issue hierarchies:
+
+1. [M1 — Authority and Repository Safeguards](https://github.com/todd-brunia/ai-delivery-orchestrator/milestone/1)
+   ([contract epic #44](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/44),
+   [identity epic #45](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/45),
+   and [portal-publication epic #111](https://github.com/todd-brunia/ai-consulting-client-portal/issues/111)).
+2. [M2 — AWS Runtime and Operator Control](https://github.com/todd-brunia/ai-delivery-orchestrator/milestone/2)
+   ([infrastructure #46](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/46),
+   [operator control #47](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/47),
+   and [safe operations #48](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/48)).
+3. [M3 — Live Planning and Execution](https://github.com/todd-brunia/ai-delivery-orchestrator/milestone/3)
+   ([providers #49](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/49),
+   [orchestration #50](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/50),
+   and [usage/diagnostics #51](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/51)).
+4. [M4 — Review, Repair, and Automatic Merge](https://github.com/todd-brunia/ai-delivery-orchestrator/milestone/4)
+   ([portal adapter #112](https://github.com/todd-brunia/ai-consulting-client-portal/issues/112),
+   [review/repair #52](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/52),
+   and [automatic merge #53](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/53)).
+5. [M5 — Portal Backlog Completion](https://github.com/todd-brunia/ai-delivery-orchestrator/milestone/5)
+   ([readiness #54](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/54)
+   and [backlog run #55](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/55)).
+
+Each epic is a non-authorizing tracker. Its child issues are the smallest
+planned implementation or explicitly human-operated units and retain the
+repository's normal marked-plan, non-default-branch, pull-request, validation,
+and review requirements. This checkpoint supersedes the earlier sequence's
+human-merge MVP boundary and two-target pilot requirement. Consulting-site
+rollout, client distribution, goal decomposition, dynamic backlog discovery,
+and unattended production deployment remain post-MVP.
+
 ## Implementation checkpoint — 2026-08-01
 
 Implementation is active in the private
@@ -63,9 +120,9 @@ It creates a reusable AWS-hosted orchestrator that coordinates an explicit list
 of GitHub issues. It does not yet generate epics from a business goal or select
 issues from filter criteria.
 
-The first installations are the private `ai-consulting-client-portal`
-repository as the primary pilot and the public `ai-consulting-site` repository
-as the second target.
+The first installation is `ai-consulting-client-portal`, which will become
+public only after the separately reviewed publication audit and proprietary
+notice changes. `ai-consulting-site` is a post-MVP second target.
 
 After the internal pilot proves the operating model, the implementation must
 also support a client-owned deployment path. A client should be able to fork a
@@ -91,7 +148,8 @@ containing:
 The first workflow, `sprint-delivery/v1`, accepts one repository plus an
 explicit list of issue numbers. It determines dependencies and conflict risk,
 authorizes eligible plans, schedules safe work, reviews pull requests, attempts
-bounded repairs, and waits for human merge before advancing dependent work.
+bounded repairs, and either waits for human merge or, for a separately
+authorized immutable run, enables guarded squash auto-merge.
 
 ## Architecture
 
@@ -437,8 +495,10 @@ Add narrowly scoped `repair` and `sync` dispatch stages to both repositories:
 5. Permit at most two review/fix cycles for a head lineage. After two failed
    cycles, apply `blocked` and require human attention.
 6. When the review passes, submit a non-approving automated review summary,
-   convert the draft to ready for review, apply `preview-ready` to the issue,
-   and wait for human review and merge.
+   convert the draft to ready for review and apply `preview-ready` to the issue.
+   Human-mode runs wait for review and merge; automatic-mode runs require an
+   independent current approval and every exact-head merge-policy check before
+   the separate merger identity may enable squash auto-merge.
 7. On merge, verify the merged SHA, mark the item merged, synchronize stale
    parallel branches, and release newly unblocked work.
 8. On close without merge, force-push, plan mutation, check regression, or
@@ -476,9 +536,10 @@ Add narrowly scoped `repair` and `sync` dispatch stages to both repositories:
 
 - Add the repository adapter and exact-bot authorization changes through the
   client portal's normal issue and pull request workflow.
-- Start with one low-risk sprint containing two or three issues.
+- Use the frozen, human-authorized Phase 1 portal manifest.
 - Enable AI plan authorization, implementation dispatch, automated review,
-  two-cycle repair, and human merge.
+  two-cycle repair, independent automated approval, and guarded squash
+  auto-merge.
 - Demonstrate crash recovery, duplicate delivery handling, pause/drain, kill
   switch, Fargate scale-to-zero, Aurora auto-pause/resume, and reconciliation.
 
@@ -513,28 +574,14 @@ Add narrowly scoped `repair` and `sync` dispatch stages to both repositories:
   approves the account boundary, expected costs, permissions, support model,
   and acceptance/rollback criteria.
 
-### Phase 6 — Automated merge follow-up
+### Phase 6 — Post-MVP expansion
 
-Scaffold a versioned `MergePolicy`, disabled `automatic` mode, separate merge
-executor interface, repository allowlist, exact-head policy decision, and kill
-switch in the initial implementation.
-
-Enable automated approval and merge only in a separately reviewed release
-after:
-
-- Ten successful human-merged orchestrated pull requests, with at least three
-  from each target repository.
-- No escaped high-severity finding, policy violation, duplicate mutation, or
-  unrecovered state corruption.
-- Current required checks and non-bypassable branch protection are enforced.
-- The private client portal has GitHub features capable of enforcing the
-  required protection.
-- A separate merge identity has only minimum permissions.
-- Squash merge, stale-head rejection, rollback, and emergency disablement have
-  been tested.
-
-Automatic mode remains restricted to low-risk work. Sensitive plan categories
-retain human approval.
+After the frozen portal backlog completes, evaluate consulting-site rollout,
+additional repositories, client-owned distribution, goal decomposition, and
+whether evidence supports any broader plan-approval policy. Automatic merge
+does not imply automatic release or deployment, and it remains bound to exact
+human-approved plans, protected repositories, separated identities, current
+checks and reviews, and emergency disablement.
 
 ## Test and acceptance plan
 
