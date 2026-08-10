@@ -80,7 +80,8 @@ epic trackers and independently planned child issues.
 
 The [2026-08-09 delivery progress checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#delivery-progress-checkpoint--2026-08-09)
 records M1 Epic E1 as merged and identifies client-portal Epic E2 publication
-and protection work as the next required slice before identity provisioning.
+and protection as complete. The portal is now public and protected; M1 Epic E3
+identity separation is the next required slice before M2.
 
 The [2026-08-01 implementation checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#implementation-checkpoint--2026-08-01)
 records the merged domain, PostgreSQL persistence, orchestration primitives,
