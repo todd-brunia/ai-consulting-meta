@@ -16,14 +16,22 @@ persistence. [PR #89](https://github.com/todd-brunia/ai-delivery-orchestrator/pu
 added the autonomous-delivery threat model, separated authority matrix, and
 containment/recovery policy. Both required CI and human review before merge.
 
-The next ordered work is still **M1**, not M2: client-portal
+Client-portal
 [Epic E2 #111](https://github.com/todd-brunia/ai-consulting-client-portal/issues/111)
-must audit the repository for publication, add proprietary and security
-notices, then make the repository public and protect `main`. Only after E2
-passes its human publication checkpoint should orchestrator
+is also complete. [PR #130](https://github.com/todd-brunia/ai-consulting-client-portal/pull/130)
+published the passing history-aware publication audit, and
+[PR #131](https://github.com/todd-brunia/ai-consulting-client-portal/pull/131)
+added the proprietary notice and private vulnerability-reporting policy. The
+repository is now public with private vulnerability reporting, squash-only
+merging, one independent approval, stale-review dismissal, resolved
+conversations, administrator enforcement, strict GitHub Actions `CI Gate`, and
+force-push/deletion prevention. A disposable-branch exercise verified the
+break-glass disable-and-restore procedure without weakening `main`.
+
+The next ordered work remains **M1**, not M2: orchestrator
 [Epic E3 #45](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/45)
-provision the separated reviewer and merger identities. M2 remains blocked on
-completion of all M1 safeguards.
+must define and provision the separated builder, reviewer, and merger
+identities. M2 remains blocked on completion of all M1 safeguards.
 
 ## MVP definition and backlog checkpoint — 2026-08-07
 
