@@ -78,6 +78,10 @@ protection, independent automated review, bounded repair, and guarded squash
 auto-merge. Five linked GitHub milestones decompose the remaining work into
 epic trackers and independently planned child issues.
 
+The [2026-08-09 delivery progress checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#delivery-progress-checkpoint--2026-08-09)
+records M1 Epic E1 as merged and identifies client-portal Epic E2 publication
+and protection work as the next required slice before identity provisioning.
+
 The [2026-08-01 implementation checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#implementation-checkpoint--2026-08-01)
 records the merged domain, PostgreSQL persistence, orchestration primitives,
 secure webhook-intake, provider-stub, and operating-runbook slices, along with

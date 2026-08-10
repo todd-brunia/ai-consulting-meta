@@ -5,6 +5,26 @@
 **Approved implementation direction — execute incrementally with reviewed
 infrastructure and repository changes.**
 
+## Delivery progress checkpoint — 2026-08-09
+
+Milestone 1 Epic E1, the autonomous-run contract and governance slice, is
+implemented and merged. Orchestrator
+[PR #88](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/88)
+added immutable, fingerprinted automatic-run authorization, fail-closed drift
+evaluation, authorization-bound merge states, and durable PostgreSQL
+persistence. [PR #89](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/89)
+added the autonomous-delivery threat model, separated authority matrix, and
+containment/recovery policy. Both required CI and human review before merge.
+
+The next ordered work is still **M1**, not M2: client-portal
+[Epic E2 #111](https://github.com/todd-brunia/ai-consulting-client-portal/issues/111)
+must audit the repository for publication, add proprietary and security
+notices, then make the repository public and protect `main`. Only after E2
+passes its human publication checkpoint should orchestrator
+[Epic E3 #45](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/45)
+provision the separated reviewer and merger identities. M2 remains blocked on
+completion of all M1 safeguards.
+
 ## MVP definition and backlog checkpoint — 2026-08-07
 
 The minimum viable product is now a complete, AWS-hosted autonomous delivery
