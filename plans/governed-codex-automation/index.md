@@ -105,6 +105,17 @@ documents workload assumptions, separates excluded OpenAI and GitHub costs,
 identifies Aurora wake time and CloudWatch logging as the main AWS cost risks,
 and defines measurement and budget controls for the pilot.
 
+### [OpenAI usage attribution and project strategy](./openai-usage-attribution.md)
+
+**Status: approved architecture guidance for the governed delivery pilot.**
+
+This companion decision keeps centralized OpenAI organization reporting while
+allocating planning, implementation, repair, and independent review usage to
+the target application's OpenAI project. It defines stage-specific credentials,
+trusted project routing, bounded request metadata, application-owned telemetry,
+monthly reconciliation, and the rule that deterministic approval and merge do
+not normally require model calls.
+
 ## Recommended reading path
 
 For packaging and client adoption, read the
@@ -115,7 +126,9 @@ For evolution of the internal delivery workflow, read the
 [sprint delivery orchestrator implementation plan](./sprint-delivery-orchestrator-implementation-plan.md)
 for the first build sequence and its
 [cost estimate](./sprint-delivery-orchestrator-cost-estimate.md) for the pilot
-budget assumptions.
+budget assumptions. Use the
+[OpenAI usage attribution strategy](./openai-usage-attribution.md) when
+implementing live model credentials, routing, telemetry, or cost reporting.
 
 Before proposing implementation, pay particular attention to:
 

@@ -161,7 +161,10 @@ because included minutes and overage rates depend on repository ownership and
 plan.
 
 Track both costs per issue. A sprint estimate is incomplete if it reports only
-AWS spend.
+AWS spend. Allocate model usage according to the
+[OpenAI usage attribution and project strategy](./openai-usage-attribution.md)
+so target-application totals remain visible in the OpenAI console while
+workflow-stage detail remains available in orchestrator telemetry.
 
 ### Logging
 

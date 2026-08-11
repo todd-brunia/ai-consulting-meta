@@ -382,6 +382,12 @@ conflict domain, plan fingerprint, feasibility decision, attempt, GitHub
 artifact, review, transition, lease, retry, cost, and provenance records.
 Every external mutation uses a transactional outbox and idempotency key.
 
+OpenAI credential routing, request correlation, and cost ownership follow the
+[OpenAI usage attribution and project strategy](./openai-usage-attribution.md):
+target-application model work is charged to that target's OpenAI project,
+independent execution stages use separate project-scoped credentials, and the
+orchestrator project is not a default bucket for work it merely coordinates.
+
 Do not retain raw model reasoning. Retain the structured decision, evidence
 references, model and policy versions, usage, and hashes of reviewed artifacts.
 
