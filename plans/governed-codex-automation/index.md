@@ -78,10 +78,16 @@ protection, independent automated review, bounded repair, and guarded squash
 auto-merge. Five linked GitHub milestones decompose the remaining work into
 epic trackers and independently planned child issues.
 
+The [2026-08-10 M1 completion checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#m1-completion-checkpoint--2026-08-10)
+records all M1 safeguards as complete: immutable run authority, public/protected
+portal controls, and independently attributable reviewer/merger identities
+with live exact-head attribution and rotation evidence. No automated review or
+merge runtime is enabled. M2 AWS runtime and operator control is now the next
+ordered milestone.
+
 The [2026-08-09 delivery progress checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#delivery-progress-checkpoint--2026-08-09)
-records M1 Epic E1 as merged and identifies client-portal Epic E2 publication
-and protection as complete. The portal is now public and protected; M1 Epic E3
-identity separation is the next required slice before M2.
+is the preceding checkpoint that records M1 Epic E1 and client-portal Epic E2
+completion before identity provisioning.
 
 The [2026-08-01 implementation checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#implementation-checkpoint--2026-08-01)
 records the merged domain, PostgreSQL persistence, orchestration primitives,

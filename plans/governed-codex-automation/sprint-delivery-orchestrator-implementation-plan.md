@@ -5,6 +5,40 @@
 **Approved implementation direction — execute incrementally with reviewed
 infrastructure and repository changes.**
 
+## M1 completion checkpoint — 2026-08-10
+
+Milestone 1's authority and repository safeguards are complete. Orchestrator
+[Epic E3 #45](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/45)
+is closed after both separated-identity children merged with human review.
+[PR #90](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/90)
+defined strict `automation-identities/v1` contracts, exact role permission and
+operation ceilings, fail-closed authorization/protection preflight, and three
+role-specific empty secret containers. Protected
+[Terraform run 31351272293](https://github.com/todd-brunia/ai-delivery-orchestrator/actions/runs/31351272293)
+applied the non-destructive secret/IAM changes.
+
+[PR #91](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/91)
+pinned the reviewer and merger App/installation IDs, portal-only audience,
+permission snapshots, distinct secret ARNs, trusted diagnostic, and sanitized
+provisioning evidence. A disposable client-portal
+[PR #133](https://github.com/todd-brunia/ai-consulting-client-portal/pull/133)
+proved one exact-head `COMMENTED` review by the reviewer bot and was closed
+without merging. The merger proof minted a portal-constrained token but invoked
+no merge endpoint. Independent rotation drills proved both replacement keys,
+revoked both old keys, observed HTTP 401 for both revoked credentials, and
+removed obsolete AWS staging labels without exposing values.
+
+This checkpoint does not enable a reviewer/merger runtime consumer, automated
+review, automatic merge, release, or deployment. GitHub permissions remain
+platform ceilings beneath application policy, and later execution slices still
+require their own approved plans and human review.
+
+The next ordered work is now **M2 — AWS Runtime and Operator Control**, beginning
+with [Epic E1 #46](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/46)
+and its durable-infrastructure children. M3-M5 remain gated by the milestone
+sequence; completing M1 does not authorize infrastructure apply or deployment
+for M2.
+
 ## Delivery progress checkpoint — 2026-08-09
 
 Milestone 1 Epic E1, the autonomous-run contract and governance slice, is
