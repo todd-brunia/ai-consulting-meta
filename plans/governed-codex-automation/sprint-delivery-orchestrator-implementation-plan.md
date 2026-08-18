@@ -5,6 +5,56 @@
 **Approved implementation direction — execute incrementally with reviewed
 infrastructure and repository changes.**
 
+## M2 runtime and operator control checkpoint — 2026-08-17
+
+Milestone 2's durable infrastructure, operator control, and protected deployment
+safeguards are complete. Orchestrator
+[Epic E1 #46](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/46)
+is closed after all durable-infrastructure child issues merged to `main`:
+
+1. **Aurora PostgreSQL and migrations ([#60](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/60))**:
+   Private Aurora PostgreSQL Serverless v2 writer in isolated subnets with
+   backups, parameterized deletion protection, migration execution task
+   definitions, and cold-resume handling.
+2. **SQS and DynamoDB runtime coordination ([#61](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/61))**:
+   Encrypted SQS FIFO command/callback queues with dead-letter queue redrive, and
+   a DynamoDB runtime coordination table for delivery deduplication, worker wake
+   generations, and status projections.
+3. **Scale-to-zero ECS Fargate workers ([#62](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/62))**:
+   Inert worker service with 0–2 capacity, immutable commit-SHA image pinning,
+   least-privilege execution/task roles, durable leases, and graceful drain.
+
+Operator control ([Epic E2 #47](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/47))
+and safe operations ([Epic E3 #48](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/48))
+children are also complete:
+- [PR #63](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/63)
+  added HTTP API Gateway and Lambda webhook ingress.
+- [PR #64](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/64)
+  added the SigV4-authenticated operator API and Bruno collection.
+- [PR #65](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/65)
+  added queue command, status projection, and runtime-control adapters.
+- [PR #66](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/66)
+  attached least-privilege runtime roles and secret access boundaries.
+- [PR #67](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/67)
+  added protected migration, deployment, rollback, and smoke workflows.
+- [PR #68](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/68)
+  added CloudWatch alarms, cost telemetry, and backup/restore verification.
+
+Live deployment validation proved the complete lifecycle in AWS:
+- Protected [Terraform apply run 31891258400](https://github.com/todd-brunia/ai-delivery-orchestrator/actions/runs/31891258400)
+  successfully provisioned the full pilot runtime.
+- Protected [Terraform destroy run 31893556477](https://github.com/todd-brunia/ai-delivery-orchestrator/actions/runs/31893556477)
+  successfully executed full automated teardown.
+- [PR #158](https://github.com/todd-brunia/ai-delivery-orchestrator/pull/158)
+  aligned bootstrap IAM policies with valid AWS Budgets actions and RDS snapshot
+  lifecycle permissions, and parameterized deletion protection across the Aurora
+  cluster and DynamoDB coordination table to guarantee clean automated teardowns.
+
+The next ordered work is now **M3 — Live Planning and Execution**, beginning with
+live model and GitHub provider integration ([Epic E1 #49](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/49)),
+LangGraph workflow runtime ([Epic E2 #50](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/50)),
+and usage/diagnostics ([Epic E3 #51](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/51)).
+
 ## M1 completion checkpoint — 2026-08-10
 
 Milestone 1's authority and repository safeguards are complete. Orchestrator
@@ -582,21 +632,22 @@ Add narrowly scoped `repair` and `sync` dispatch stages to both repositories:
   distribution notice.
 - [x] Build local Docker Compose with PostgreSQL and stubbed GitHub/OpenAI
   adapters.
-- **Partially complete:** Implement Terraform bootstrap, AWS resources, OIDC
+- [x] Implement Terraform bootstrap, AWS resources, OIDC
   CI/CD, migrations, secrets contract, observability, and Bruno smoke tests.
-  Application migrations and the unapplied state/OIDC/ECR/network foundation
-  are merged and validated. No infrastructure has been applied; secrets,
-  observability, budgets, application resources, protected deployment, and
-  Bruno smoke tests remain pending.
+  Bootstrap, pilot-IAM, and pilot environments (Aurora PostgreSQL Serverless v2,
+  SQS FIFO queues, DynamoDB coordination, scale-to-zero ECS Fargate workers,
+  API Gateway ingress, SigV4 operator API, CloudWatch alarms, and Bruno collections)
+  are fully implemented, applied, and verified in AWS.
 
 ### Phase 2 — Dry-run orchestration
 
-- **Partially complete:** Implement webhook validation, durable inbox/outbox, reconciliation,
+- **In progress:** Implement webhook validation, durable inbox/outbox, reconciliation,
   LangGraph persistence, dependency analysis, feasibility review, and
   scheduling. Webhook verification and normalization, durable inbox/outbox,
-  domain dependency validation, and persistence-level scheduling are merged;
-  ingress transport, reconciliation, LangGraph, model feasibility analysis,
-  and end-to-end scheduling remain pending.
+  status projections, queue consumption, domain dependency validation, and
+  persistence-level scheduling are merged. Live model and GitHub provider
+  integration, LangGraph workflow execution, and end-to-end dry-run execution
+  continue in Milestone 3.
 - Run read-only against both targets and report proposed labels, dispatches,
   reviews, and concurrency decisions without GitHub writes.
 

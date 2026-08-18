@@ -78,6 +78,13 @@ protection, independent automated review, bounded repair, and guarded squash
 auto-merge. Five linked GitHub milestones decompose the remaining work into
 epic trackers and independently planned child issues.
 
+The [2026-08-17 M2 runtime and operator control checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#m2-runtime-and-operator-control-checkpoint--2026-08-17)
+records all M2 milestones as complete: durable infrastructure ([Epic E1 #46](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/46)
+closed), ingress and operator control ([Epic E2 #47](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/47)),
+and safe operations ([Epic E3 #48](https://github.com/todd-brunia/ai-delivery-orchestrator/issues/48)),
+with live deployment validation in AWS (successful protected apply and destroy
+runs). M3 live planning and execution is now the next ordered milestone.
+
 The [2026-08-10 M1 completion checkpoint](./sprint-delivery-orchestrator-implementation-plan.md#m1-completion-checkpoint--2026-08-10)
 records all M1 safeguards as complete: immutable run authority, public/protected
 portal controls, and independently attributable reviewer/merger identities
